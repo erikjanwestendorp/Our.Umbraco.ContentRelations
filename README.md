@@ -1,1 +1,1 @@
-# Our.Umbraco.Relations
+# Our.Umbraco.ContentRelations
