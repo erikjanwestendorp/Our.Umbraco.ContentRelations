@@ -1,0 +1,25 @@
+﻿namespace Our.Umbraco.ContentRelations.Static
+{
+    public static class Constants
+    {
+        public static class Package
+        {
+            public const string Name = "Our.Umbraco.ContentRelations";
+            public const string Alias = "ourUmbracoContentRelations";
+        }
+
+        public static class Apps
+        {
+            public static class RelationsContentApp
+            {
+                public const string Alias = "contentRelations";
+                public const string Name = "Relations";
+                public const string Icon = "icon-trafic";
+                public const string View = "/App_Plugins/ContentRelations/info.html";
+                public const int Weight = 0;
+
+            }
+        }
+
+    }
+}
