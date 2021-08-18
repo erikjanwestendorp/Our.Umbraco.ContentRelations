@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Routing;
+using Our.Umbraco.ContentRelations.Controllers.Backoffice;
 using Our.Umbraco.ContentRelations.Static;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Notifications;
+using Umbraco.Extensions;
 
 namespace Our.Umbraco.ContentRelations.Notifications
 {
@@ -19,6 +21,7 @@ namespace Our.Umbraco.ContentRelations.Notifications
         {
             notification.ServerVariables.Add(Constants.Package.Alias, new Dictionary<string, object>
             {
+                {Constants.ApiPaths.ContentRelationsController, _linkGenerator.GetUmbracoApiServiceBaseUrl<ContentRelationsController>(controller => controller.GetRelationsByContentId(0))}
 
             });
         }

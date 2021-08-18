@@ -21,5 +21,10 @@
             }
         }
 
+        public static class ApiPaths
+        {
+            public const string ContentRelationsController = "contentRelations";
+        }
+
     }
 }
