@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.ContentRelations", "Our.Umbraco.ContentRelations\Our.Umbraco.ContentRelations.csproj", "{91F4B225-AEA0-4BF8-B280-5362568650DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.ContentRelations", "Our.Umbraco.ContentRelations\Our.Umbraco.ContentRelations.csproj", "{91F4B225-AEA0-4BF8-B280-5362568650DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.ContentRelations.Site", "..\..\UmbracoOur.Umbraco.ContentRelations\Our.Umbraco.ContentRelations.Site\Our.Umbraco.ContentRelations.Site.csproj", "{EDF159C1-EC23-48A2-9E4E-BDE85A75275B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{91F4B225-AEA0-4BF8-B280-5362568650DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91F4B225-AEA0-4BF8-B280-5362568650DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F4B225-AEA0-4BF8-B280-5362568650DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF159C1-EC23-48A2-9E4E-BDE85A75275B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF159C1-EC23-48A2-9E4E-BDE85A75275B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF159C1-EC23-48A2-9E4E-BDE85A75275B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF159C1-EC23-48A2-9E4E-BDE85A75275B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
