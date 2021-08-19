@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Our.Umbraco.ContentRelations.ViewModels;
+using Umbraco.Cms.Core.Mapping;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Web.BackOffice.Controllers;
@@ -12,24 +14,32 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
     {
         private readonly IRelationService _relationService;
         private readonly IContentService _contentService;
+        private readonly IUmbracoMapper _umbracoMapper;
+
         public ContentRelationsController(
             IRelationService relationService,
-            IContentService contentService)
+            IContentService contentService, 
+            IUmbracoMapper umbracoMapper)
         {
             _relationService = relationService;
             _contentService = contentService;
+            _umbracoMapper = umbracoMapper;
         }
 
         [HttpGet]
-        public IEnumerable<IRelation> GetRelationsByContentId(int id)
+        public IEnumerable<RelationViewModel> GetRelationsByContentId(int id)
         {
             var childRelations = _relationService.GetByChildId(id).ToList();
             var parentRelations = _relationService.GetByParentId(id).ToList();
 
+            // TODO Make a service 
             
-            var result = childRelations.Concat(parentRelations).ToList();
+            
+            var concatenated = childRelations.Concat(parentRelations).ToList();
 
-            return result.Any() ? result : Enumerable.Empty<IRelation>();
+            var result = _umbracoMapper.MapEnumerable<IRelation, RelationViewModel>(concatenated);
+
+            return result.Any() ? result : Enumerable.Empty<RelationViewModel>();
 
         }
     }
