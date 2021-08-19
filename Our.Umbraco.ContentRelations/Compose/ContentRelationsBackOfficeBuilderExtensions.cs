@@ -19,7 +19,8 @@ namespace Our.Umbraco.ContentRelations.Compose
 
             // Add Mappings
             builder.WithCollectionBuilder<MapDefinitionCollectionBuilder>()
-                .Add<RelationMappings>();
+                .Add<RelationMappings>()
+                .Add<ContentMappings>();
 
             return builder;
         }
