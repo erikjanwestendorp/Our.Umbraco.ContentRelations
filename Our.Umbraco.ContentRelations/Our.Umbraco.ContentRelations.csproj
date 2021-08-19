@@ -27,6 +27,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="App_Plugins\ContentRelations\content.relations.controller.js" />
       <None Remove="App_Plugins\ContentRelations\info.html" />
+      <None Remove="App_Plugins\ContentRelations\resources\content.relations.resource.js" />
     </ItemGroup>
 </Project>

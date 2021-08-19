@@ -1,6 +1,13 @@
 ﻿{
   "javascript": [
-    
+    // controllers
+    "~/App_Plugins/ContentRelations/content.relations.controller.js",
+
+    // resources
+    "~/App_Plugins/ContentRelations/resources/content.relations.resource.js"
+  ],
+  "css": [
+
   ]
 
 }
