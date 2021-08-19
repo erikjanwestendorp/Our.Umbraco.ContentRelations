@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsController($scope, $routeParams, contentRelationsResource, editorState) {
+    function contentRelationsController($scope, $routeParams, contentRelationsResource) {
 
         var vm = this;
 
@@ -19,8 +19,6 @@
                 vm.isLoading = false;
             });
         }
-
-
     }
 
     angular.module('umbraco')
