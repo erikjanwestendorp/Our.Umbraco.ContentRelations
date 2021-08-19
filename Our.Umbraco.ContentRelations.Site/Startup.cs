@@ -1,24 +1,57 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Extensions;
 
 namespace Our.Umbraco.ContentRelations.Site
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
+        private readonly IWebHostEnvironment _env;
+        private readonly IConfiguration _config;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Startup"/> class.
+        /// </summary>
+        /// <param name="webHostEnvironment">The Web Host Environment</param>
+        /// <param name="config">The Configuration</param>
+        /// <remarks>
+        /// Only a few services are possible to be injected here https://github.com/dotnet/aspnetcore/issues/9337
+        /// </remarks>
+        public Startup(IWebHostEnvironment webHostEnvironment, IConfiguration config)
         {
+            _env = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
+            _config = config ?? throw new ArgumentNullException(nameof(config));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
+
+        /// <summary>
+        /// Configures the services
+        /// </summary>
+        /// <remarks>
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        /// </remarks>
+        public void ConfigureServices(IServiceCollection services)
+        {
+#pragma warning disable IDE0022 // Use expression body for methods
+            services.AddUmbraco(_env, _config)
+                .AddBackOffice()
+                .AddWebsite()
+                .AddComposers()
+                .Build();
+#pragma warning restore IDE0022 // Use expression body for methods
+
+        }
+
+        /// <summary>
+        /// Configures the application
+        /// </summary>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -26,15 +59,18 @@ namespace Our.Umbraco.ContentRelations.Site
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
+            app.UseUmbraco()
+                .WithMiddleware(u =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    u.WithBackOffice();
+                    u.WithWebsite();
+                })
+                .WithEndpoints(u =>
+                {
+                    u.UseInstallerEndpoints();
+                    u.UseBackOfficeEndpoints();
+                    u.UseWebsiteEndpoints();
                 });
-            });
         }
     }
 }
