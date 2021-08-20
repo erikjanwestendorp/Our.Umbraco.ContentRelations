@@ -1,16 +1,31 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsController($scope, $routeParams, contentRelationsResource, editorState) {
+    function contentRelationsController($scope, $routeParams, contentRelationsResource, editorState, currentUserResource, userService) {
 
         var vm = this;
+
         vm.navigate = navigate;
+        vm.navigateToRelationType = navigateToRelationType;
 
         vm.isLoading = true;
+
+        vm.permissions = {
+            canBrowseSettingsSection: false
+        };
+
         
-        getRelations();
+        init();
 
         vm.relations = [];
+
+      
+
+        function init() {
+            getRelations();
+            setPermissions();
+        }
+
 
         function getRelations() {
 
@@ -19,10 +34,25 @@
                 console.log(data);
                 vm.isLoading = false;
             });
+
+        }
+
+        function setPermissions() {
+
+            userService.getCurrentUser().then(function(user) {
+                if (user.allowedSections.includes("settings")) {
+                    vm.permissions.canBrowseSettingsSection = true;
+                }
+            });
+
         }
 
         function navigate(nodeId) {
             window.location = "/umbraco/#/content/content/edit/" + nodeId;
+        }
+
+        function navigateToRelationType(relationTypeId) {
+            window.location = "/umbraco/#/settings/relationTypes/edit/" + relationTypeId;
         }
     }
 

@@ -32,7 +32,8 @@
                         {{item.createDateUtc | date: "dd/MM/yyyy 'at' h:mma"}}
                     </div>
                     <div class="umb-table-cell">
-                        {{relation.relationType.name}}
+                        <span ng-if="vm.permissions.canBrowseSettingsSection"><a class="btn-link -underline" ng-click="vm.navigateToRelationType(relation.relationTypeId)">{{relation.relationType.name}}</a></span>
+                        <span ng-if="!vm.permissions.canBrowseSettingsSection">{{relation.relationType.name}}</span>
                     </div>
                     <div class="umb-table-cell">
                         No
