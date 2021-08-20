@@ -19,8 +19,6 @@
                 vm.isLoading = false;
             });
         }
-
-
     }
 
     angular.module('umbraco')
