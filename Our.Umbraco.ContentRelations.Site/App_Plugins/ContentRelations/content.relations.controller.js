@@ -4,6 +4,7 @@
     function contentRelationsController($scope, $routeParams, contentRelationsResource, editorState) {
 
         var vm = this;
+        vm.navigate = navigate;
 
         vm.isLoading = true;
         
@@ -18,6 +19,10 @@
                 console.log(data);
                 vm.isLoading = false;
             });
+        }
+
+        function navigate(nodeId) {
+            window.location = "/umbraco/#/content/content/edit/" + nodeId;
         }
     }
 

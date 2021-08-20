@@ -25,7 +25,7 @@
             <div class="umb-table-body">
                 <div class="umb-table-row" ng-repeat="relation in vm.relations">
                     <div class="umb-table-cell not-fixed">
-                        {{relation.content.name}}
+                        <span><a class="btn-link -underline" ng-click="vm.navigate(relation.content.id)">{{relation.content.name}}</a></span>
                     </div>
                     <div class="umb-table-cell">
                         test
