@@ -1,6 +1,8 @@
 ﻿using Our.Umbraco.ContentRelations.Apps;
+using Our.Umbraco.ContentRelations.Mappings;
 using Our.Umbraco.ContentRelations.Notifications;
 using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Cms.Core.Mapping;
 using Umbraco.Cms.Core.Notifications;
 
 namespace Our.Umbraco.ContentRelations.Compose
@@ -14,6 +16,11 @@ namespace Our.Umbraco.ContentRelations.Compose
 
             // Add Notifications
             builder.AddNotificationHandler<ServerVariablesParsingNotification, VariablesHandler>();
+
+            // Add Mappings
+            builder.WithCollectionBuilder<MapDefinitionCollectionBuilder>()
+                .Add<RelationMappings>()
+                .Add<ContentMappings>();
 
             return builder;
         }

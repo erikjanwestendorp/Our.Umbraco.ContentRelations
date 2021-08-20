@@ -9,23 +9,23 @@
             <div class="umb-table-head">
                 <div class="umb-table-row">
                     <div class="umb-table-cell not-fixed">
-                        Node
+                        <localize key="default_node">Node</localize>
                     </div>
                     <div class="umb-table-cell">
-                        Comment
+                        <localize key="default_comment">Comment</localize>
                     </div>
                     <div class="umb-table-cell">
-                        Relation Type
+                        <localize key="default_relationType">Relation Type</localize>
                     </div>
                     <div class="umb-table-cell">
-                        Can delete
+                        <localize key="default_deleteAllowed">Delete allowed</localize>
                     </div>
                 </div>
             </div>
             <div class="umb-table-body">
                 <div class="umb-table-row" ng-repeat="relation in vm.relations">
                     <div class="umb-table-cell not-fixed">
-                        Node name
+                        {{relation.content.name}}
                     </div>
                     <div class="umb-table-cell">
                         test
@@ -35,7 +35,7 @@
                         {{relation.relationType.name}}
                     </div>
                     <div class="umb-table-cell">
-                        False
+                        No
                     </div>
 
                 </div>
