@@ -26,5 +26,16 @@
             public const string ContentRelationsController = "contentRelations";
         }
 
+        public static class RelationTypes
+        {
+            public static class RelatedContent
+            {
+                public const string Alias = "contentRelationsRelatedContent";
+                public const string Name = "Related Content";
+            }
+
+            
+        }
+
     }
 }
