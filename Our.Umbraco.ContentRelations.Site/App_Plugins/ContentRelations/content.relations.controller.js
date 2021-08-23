@@ -11,15 +11,17 @@
         vm.isLoading = true;
 
         vm.permissions = {
-            canBrowseSettingsSection: false
+            canBrowseSettingsSection: false,
+            canAddRelations: false,
+            canDeleteRelations: false
         };
 
-        
+
         init();
 
         vm.relations = [];
 
-      
+
 
         function init() {
             getRelations();
@@ -39,9 +41,19 @@
 
         function setPermissions() {
 
-            userService.getCurrentUser().then(function(user) {
+            userService.getCurrentUser().then(function (user) {
+
+                console.log(user);
                 if (user.allowedSections.includes("settings")) {
                     vm.permissions.canBrowseSettingsSection = true;
+                }
+
+                if (user.allowedSections.includes("content")) {
+                    vm.permissions.canAddRelations = true;
+                }
+
+                if (user.userGrous.includes("admin")) {
+                    vm.permissions.canDeleteRelations = true;
                 }
             });
 

@@ -46,7 +46,18 @@
 
         <umb-empty-state ng-if="vm.relations.length === 0"
                          position="center">
-            No relations found for this page
+            <localize key="default_noRelations">
+                No relations found for this page
+            </localize>
         </umb-empty-state>
+
+        <umb-button ng-if="vm.permissions.canAddRelations" type="button" label="Add Relation"></umb-button>
+
+
+        <umb-overlay ng-if="vm.overlay.show"
+                     model="vm.overlay"
+                     view="vm.overlay.view"
+                     position="right">
+        </umb-overlay>
     </div>
 </div>

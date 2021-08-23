@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Our.Umbraco.ContentRelations.Static;
+﻿using Our.Umbraco.ContentRelations.Static;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Services;
@@ -8,15 +7,10 @@ namespace Our.Umbraco.ContentRelations.Compose
 {
     public class SetupRelationTypesComponent : IComponent
     {
-
-        private readonly ILogger<SetupRelationTypesComponent> _logger;
         private readonly IRelationService _relationService;
 
-        public SetupRelationTypesComponent(
-            ILogger<SetupRelationTypesComponent> logger,
-            IRelationService relationService)
+        public SetupRelationTypesComponent(IRelationService relationService)
         {
-            _logger = logger;
             _relationService = relationService;
         }
 
