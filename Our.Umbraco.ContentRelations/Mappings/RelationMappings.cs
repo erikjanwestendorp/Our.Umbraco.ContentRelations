@@ -13,6 +13,8 @@ namespace Our.Umbraco.ContentRelations.Mappings
 
         private static void Map(IRelation src, RelationViewModel vm, MapperContext arg3)
         {
+            vm.Id = src.Id;
+            vm.CreateDate = src.CreateDate;
             vm.ChildId = src.ChildId;
             vm.ChildObjectType = src.ChildObjectType;
             vm.Comment = src.Comment;

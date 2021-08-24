@@ -1,12 +1,14 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsController($scope, $routeParams, contentRelationsResource, editorState, currentUserResource, userService) {
+    function contentRelationsController($scope, $routeParams, contentRelationsResource, userService, editorService) {
 
         var vm = this;
 
         vm.navigate = navigate;
         vm.navigateToRelationType = navigateToRelationType;
+        vm.addRelation = addRelation;
+        vm.deleteRelation = deleteRelation;
 
         vm.isLoading = true;
 
@@ -52,7 +54,7 @@
                     vm.permissions.canAddRelations = true;
                 }
 
-                if (user.userGrous.includes("admin")) {
+                if (user.userGroups.includes("admin")) {
                     vm.permissions.canDeleteRelations = true;
                 }
             });
@@ -65,6 +67,27 @@
 
         function navigateToRelationType(relationTypeId) {
             window.location = "/umbraco/#/settings/relationTypes/edit/" + relationTypeId;
+        }
+
+        function addRelation() {
+
+            var dialog = {
+                view: "/App_Plugins/ContentRelations/overlays/create.html",
+                size: "small",
+                submit: function (model) {
+                    editorService.close();
+                },
+                close: function () {
+                    editorService.close();
+                }
+            };
+
+            editorService.open(dialog);
+
+        }
+
+        function deleteRelation(relation, event) {
+            contentRelationsResource.remove(relation);
         }
     }
 

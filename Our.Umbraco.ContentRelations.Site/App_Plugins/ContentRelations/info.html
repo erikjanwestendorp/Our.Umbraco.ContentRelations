@@ -1,7 +1,24 @@
 ﻿<div ng-controller="contentRelationsController as vm">
 
+    <umb-editor-sub-header>
+
+        <umb-editor-sub-header-content-left>
+            <umb-button ng-if="vm.permissions.canAddRelations"
+                        type="button"
+                        button-style="info"
+                        action="vm.addRelation()"
+                        label="Add Relation">
+            </umb-button>
+        </umb-editor-sub-header-content-left>
+
+    </umb-editor-sub-header>
+
+
+
     <umb-load-indicator ng-if="vm.isLoading">
     </umb-load-indicator>
+
+
 
     <div ng-if="!vm.isLoading">
 
@@ -12,13 +29,16 @@
                         <localize key="default_node">Node</localize>
                     </div>
                     <div class="umb-table-cell">
+                        <localize key="default_createDate">Create Date</localize>
+                    </div>
+                    <div class="umb-table-cell">
                         <localize key="default_comment">Comment</localize>
                     </div>
                     <div class="umb-table-cell">
                         <localize key="default_relationType">Relation Type</localize>
                     </div>
                     <div class="umb-table-cell">
-                        <localize key="default_deleteAllowed">Delete allowed</localize>
+                        <localize key="default_delete">Delete</localize>
                     </div>
                 </div>
             </div>
@@ -28,7 +48,10 @@
                         <span><a class="btn-link -underline" ng-click="vm.navigate(relation.content.id)">{{relation.content.name}}</a></span>
                     </div>
                     <div class="umb-table-cell">
-                        test
+                        {{relation.createDate | date: "dd/MM/yyyy 'at' h:mma"}}
+                    </div>
+                    <div class="umb-table-cell">
+                        {{relation.comment}}
                         {{item.createDateUtc | date: "dd/MM/yyyy 'at' h:mma"}}
                     </div>
                     <div class="umb-table-cell">
@@ -36,7 +59,13 @@
                         <span ng-if="!vm.permissions.canBrowseSettingsSection">{{relation.relationType.name}}</span>
                     </div>
                     <div class="umb-table-cell">
-                        No
+                        <umb-button type="button"
+                                    size="xxs"
+                                    button-style="danger"
+                                    state="domain.deleteButtonState"
+                                    action="vm.deleteRelation(relation, $event)"
+                                    label-key="general_delete">
+                        </umb-button>
                     </div>
 
                 </div>
@@ -50,14 +79,12 @@
                 No relations found for this page
             </localize>
         </umb-empty-state>
-
-        <umb-button ng-if="vm.permissions.canAddRelations" type="button" label="Add Relation"></umb-button>
-
-
+        
         <umb-overlay ng-if="vm.overlay.show"
                      model="vm.overlay"
                      view="vm.overlay.view"
                      position="right">
         </umb-overlay>
     </div>
+
 </div>

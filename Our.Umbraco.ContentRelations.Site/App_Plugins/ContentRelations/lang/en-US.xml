@@ -9,6 +9,8 @@
     <key alias="comment">Comment</key>
     <key alias="relationType">Relation Type</key>
     <key alias="deleteAllowed">Delete allowed</key>
+    <key alias="delete">Delete</key>
     <key alias="noRelations">No relations found for this page</key>
+    <key alias="createDate">Create Date</key>
   </area>
 </language>
