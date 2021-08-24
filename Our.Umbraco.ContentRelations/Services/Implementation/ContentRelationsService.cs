@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Dazinator.Extensions.FileProviders.GlobPatternFilter;
 using Our.Umbraco.ContentRelations.Static;
 using Our.Umbraco.ContentRelations.ViewModels;
 using Umbraco.Cms.Core.Mapping;
@@ -26,7 +25,7 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
         }
         public IEnumerable<RelationViewModel> GetRelationsByContentId(int id)
         {
-            
+
 
             var relationType = _relationService.GetRelationTypeByAlias(Constants.RelationTypes.RelatedContent.Alias);
             var relations = _relationService.GetAllRelationsByRelationType(relationType).Where(x => x.ParentId == id || x.ChildId == id).ToList();
@@ -62,6 +61,35 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
             return result;
         }
 
+
+        public RelationViewModel Save(RelationViewModel relation)
+        {
+
+            var relationType = _relationService.GetRelationTypeByAlias(Constants.RelationTypes.RelatedContent.Alias);
+
+            _relationService.Save(
+                new Relation(relation.ParentId, relation.ChildId, relationType)
+                {
+                    Comment = relation.Comment
+                });
+
+            // TODO GET 
+            
+            return relation;
+
+        }
+
+        public bool Delete(int id)
+        {
+            var r = _relationService.GetById(id);
+
+            if (r == null)
+                return false;
+
+            _relationService.Delete(r);
+
+            return true;
+        }
 
         private ContentViewModel GetContent(int id)
         {
