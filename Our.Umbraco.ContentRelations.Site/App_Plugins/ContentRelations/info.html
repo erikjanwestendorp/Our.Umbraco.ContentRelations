@@ -59,11 +59,21 @@
                         <span ng-if="!vm.permissions.canBrowseSettingsSection">{{relation.relationType.name}}</span>
                     </div>
                     <div class="umb-table-cell">
-                        <umb-button type="button"
+                        <umb-button ng-if="vm.permissions.canDeleteRelations"
+                                    type="button"
                                     size="xxs"
                                     button-style="danger"
                                     state="domain.deleteButtonState"
                                     action="vm.deleteRelation(relation, $event)"
+                                    label-key="general_delete">
+                        </umb-button>
+                        <umb-button ng-if="!vm.permissions.canDeleteRelations"
+                                    type="button"
+                                    size="xxs"
+                                    button-style="danger"
+                                    state="domain.deleteButtonState"
+                                    action="vm.deleteRelation(relation, $event)"
+                                    disabled="true"
                                     label-key="general_delete">
                         </umb-button>
                     </div>
