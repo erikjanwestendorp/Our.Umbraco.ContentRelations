@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Our.Umbraco.ContentRelations.Services;
 using Our.Umbraco.ContentRelations.ViewModels;
 using Umbraco.Cms.Web.BackOffice.Controllers;
+using Umbraco.Cms.Web.Common.Authorization;
+using Umbraco.Cms.Web.Common.Filters;
 
 namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 {
@@ -27,10 +30,10 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
         }
 
         [HttpPost]
+        [Authorize(Policy = AuthorizationPolicies.SectionAccessSettings)]
         public RelationViewModel AddRelation(RelationViewModel relation)
         {
             // TODO VALIDATION
-            // TODO IS USER ADMIN
             // TODO IS relation valid
             // TODO RETURN ATTEMPT? 
             // TODO DOES RELATION ALREADY EXIST?
@@ -38,10 +41,10 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
             return _relationService.Save(relation);
         }
 
-        [HttpDelete] 
+        [HttpDelete]
+        [Authorize(Policy = AuthorizationPolicies.SectionAccessSettings)]
         public bool DeleteRelation(int id)
         {
-            // TODO Only admins can delete
             return _relationService.Delete(id);
         }
 
