@@ -26,9 +26,7 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
         public IEnumerable<RelationViewModel> GetRelationsByContentId(int id)
         {
 
-
-            var relationType = _relationService.GetRelationTypeByAlias(Constants.RelationTypes.RelatedContent.Alias);
-            var relations = _relationService.GetAllRelationsByRelationType(relationType).Where(x => x.ParentId == id || x.ChildId == id).ToList();
+            var relations = _relationService.GetAllRelationsByRelationType(RelationType()).Where(x => x.ParentId == id || x.ChildId == id).ToList();
 
             var mapped = _umbracoMapper.MapEnumerable<IRelation, RelationViewModel>(relations);
 
@@ -64,17 +62,24 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
 
         public RelationViewModel Save(RelationViewModel relation)
         {
-
-            var relationType = _relationService.GetRelationTypeByAlias(Constants.RelationTypes.RelatedContent.Alias);
-
             _relationService.Save(
-                new Relation(relation.ParentId, relation.ChildId, relationType)
+                new Relation(relation.ParentId, relation.ChildId, RelationType())
                 {
                     Comment = relation.Comment
                 });
 
-            // TODO GET 
+            var addedRelation = _relationService.GetAllRelations().FirstOrDefault(x => x.ChildId == relation.ChildId && x.ParentId == relation.ParentId);
+
+
+            if (addedRelation != null)
+            {
+                var mapped = _umbracoMapper.Map<IRelation, RelationViewModel>(addedRelation);
+                mapped.Content = GetContent(mapped.ChildId);
+
+                return mapped;
+            }
             
+            // TODO Error handling
             return relation;
 
         }
@@ -89,6 +94,12 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
             _relationService.Delete(r);
 
             return true;
+        }
+
+        private IRelationType RelationType()
+        {
+            return _relationService.GetRelationTypeByAlias(Constants.RelationTypes.RelatedContent.Alias);
+
         }
 
         private ContentViewModel GetContent(int id)
