@@ -5,7 +5,6 @@ using Our.Umbraco.ContentRelations.Services;
 using Our.Umbraco.ContentRelations.ViewModels;
 using Umbraco.Cms.Web.BackOffice.Controllers;
 using Umbraco.Cms.Web.Common.Authorization;
-using Umbraco.Cms.Web.Common.Filters;
 
 namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 {
