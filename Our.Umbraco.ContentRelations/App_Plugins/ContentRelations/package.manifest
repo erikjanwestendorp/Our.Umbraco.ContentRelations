@@ -2,6 +2,7 @@
   "javascript": [
     // controllers
     "~/App_Plugins/ContentRelations/content.relations.controller.js",
+    "~/App_Plugins/ContentRelations/overlays/create.controller.js",
 
     // resources
     "~/App_Plugins/ContentRelations/resources/content.relations.resource.js"

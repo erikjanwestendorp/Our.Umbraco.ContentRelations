@@ -2,12 +2,19 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <ContentTargetFolders>.</ContentTargetFolders>
+        
         <Product>Our.Umbraco.ContentRelations</Product>
         <PackageId>Our.Umbraco.ContentRelations</PackageId>
         <Title>Our.Umbraco.ContentRelations</Title>
+
+        <Authors>Erik-Jan Westendorp</Authors>
+        
+        <Copyright>Copyright 2021</Copyright>
         <Description>...</Description>
         <Product>...</Product>
-        <PackageTags>umbraco plugin package</PackageTags>
+
+        <PackageProjectUrl>https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations</PackageProjectUrl>
+        <PackageTags>Umbraco Package ContentRelations</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
@@ -26,9 +33,9 @@
         </None>
     </ItemGroup>
 
-    <ItemGroup>
+    <!--<ItemGroup>
       <None Remove="App_Plugins\ContentRelations\content.relations.controller.js" />
       <None Remove="App_Plugins\ContentRelations\info.html" />
       <None Remove="App_Plugins\ContentRelations\resources\content.relations.resource.js" />
-    </ItemGroup>
+    </ItemGroup>-->
 </Project>
