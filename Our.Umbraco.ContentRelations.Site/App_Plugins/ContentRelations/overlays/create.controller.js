@@ -43,10 +43,7 @@
             }
 
             contentRelationsResource.save(data).then(function (response) {
-                //TODO Check response
-                console.log(response);
-                
-                $scope.model.close();
+                $scope.model.submit(response);
             });
 
         };
