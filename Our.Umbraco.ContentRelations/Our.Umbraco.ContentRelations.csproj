@@ -15,6 +15,7 @@
 
         <PackageProjectUrl>https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations</PackageProjectUrl>
         <PackageTags>Umbraco Package ContentRelations</PackageTags>
+        
     </PropertyGroup>
 
     <ItemGroup>

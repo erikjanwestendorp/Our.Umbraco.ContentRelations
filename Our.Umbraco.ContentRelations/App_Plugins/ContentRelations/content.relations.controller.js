@@ -75,7 +75,7 @@
                 view: "/App_Plugins/ContentRelations/overlays/create.html",
                 size: "small",
                 submit: function (model) {
-                    console.log("close");
+                    vm.relations.push(model);
                     editorService.close();
                 },
                 close: function () {
