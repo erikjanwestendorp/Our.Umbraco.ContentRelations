@@ -22,6 +22,25 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
       
+    - name: publish on version change
+      id: publish_nuget
+      uses: rohith/publish-nuget@v2
+      with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: Our.Umbraco.ContentRelations/Our.Umbraco.ContentRelations.csproj
+          
+          # Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX
+          VERSION_STATIC: 1.0.0-alpha
+          
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+          
+          
+      
+
+
+
+      
 
         
         
