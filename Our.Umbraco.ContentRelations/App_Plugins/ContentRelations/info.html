@@ -1,41 +1,81 @@
 ﻿<div ng-controller="contentRelationsController as vm">
 
+    <umb-editor-sub-header>
+
+        <umb-editor-sub-header-content-left>
+            <umb-button ng-if="vm.permissions.canAddRelations"
+                        type="button"
+                        button-style="info"
+                        action="vm.addRelation()"
+                        label="Add Relation">
+            </umb-button>
+        </umb-editor-sub-header-content-left>
+
+    </umb-editor-sub-header>
+
+
+
     <umb-load-indicator ng-if="vm.isLoading">
     </umb-load-indicator>
 
+
+
     <div ng-if="!vm.isLoading">
 
-        <div class="umb-table our_umbraco_redirectsviewer" ng-if="vm.relations.length > 0">
+        <div class="umb-table" ng-if="vm.relations.length > 0">
             <div class="umb-table-head">
                 <div class="umb-table-row">
                     <div class="umb-table-cell not-fixed">
-                        Node
+                        <localize key="default_node">Node</localize>
                     </div>
                     <div class="umb-table-cell">
-                        Comment
+                        <localize key="default_createDate">Create Date</localize>
                     </div>
                     <div class="umb-table-cell">
-                        Relation Type
+                        <localize key="default_comment">Comment</localize>
                     </div>
                     <div class="umb-table-cell">
-                        Can delete
+                        <localize key="default_relationType">Relation Type</localize>
+                    </div>
+                    <div class="umb-table-cell">
+                        <localize key="default_delete">Delete</localize>
                     </div>
                 </div>
             </div>
             <div class="umb-table-body">
                 <div class="umb-table-row" ng-repeat="relation in vm.relations">
                     <div class="umb-table-cell not-fixed">
-                        Node name
+                        <span><a class="btn-link -underline" ng-click="vm.navigate(relation.content.id)">{{relation.content.name}}</a></span>
                     </div>
                     <div class="umb-table-cell">
-                        test
+                        {{relation.createDate | date: "dd/MM/yyyy 'at' h:mma"}}
+                    </div>
+                    <div class="umb-table-cell">
+                        {{relation.comment}}
                         {{item.createDateUtc | date: "dd/MM/yyyy 'at' h:mma"}}
                     </div>
                     <div class="umb-table-cell">
-                        {{relation.relationType.name}}
+                        <span ng-if="vm.permissions.canBrowseSettingsSection"><a class="btn-link -underline" ng-click="vm.navigateToRelationType(relation.relationTypeId)">{{relation.relationType.name}}</a></span>
+                        <span ng-if="!vm.permissions.canBrowseSettingsSection">{{relation.relationType.name}}</span>
                     </div>
                     <div class="umb-table-cell">
-                        False
+                        <umb-button ng-if="vm.permissions.canDeleteRelations"
+                                    type="button"
+                                    size="xxs"
+                                    button-style="danger"
+                                    state="domain.deleteButtonState"
+                                    action="vm.deleteRelation(relation, $event)"
+                                    label-key="general_delete">
+                        </umb-button>
+                        <umb-button ng-if="!vm.permissions.canDeleteRelations"
+                                    type="button"
+                                    size="xxs"
+                                    button-style="danger"
+                                    state="domain.deleteButtonState"
+                                    action="vm.deleteRelation(relation, $event)"
+                                    disabled="true"
+                                    label-key="general_delete">
+                        </umb-button>
                     </div>
 
                 </div>
@@ -45,7 +85,16 @@
 
         <umb-empty-state ng-if="vm.relations.length === 0"
                          position="center">
-            No relations found for this page
+            <localize key="default_noRelations">
+                No relations found for this page
+            </localize>
         </umb-empty-state>
+        
+        <umb-overlay ng-if="vm.overlay.show"
+                     model="vm.overlay"
+                     view="vm.overlay.view"
+                     position="right">
+        </umb-overlay>
     </div>
+
 </div>

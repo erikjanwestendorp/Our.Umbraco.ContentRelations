@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en_us" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <creator>
+    <name>Erik-Jan Westendorp</name>
+    <link>https://www.erikjanwestendorp.nl</link>
+  </creator>
+  <area alias="default">
+    <key alias="node">Node</key>
+    <key alias="comment">Comment</key>
+    <key alias="relationType">Relation Type</key>
+    <key alias="deleteAllowed">Delete allowed</key>
+    <key alias="delete">Delete</key>
+    <key alias="noRelations">No relations found for this page</key>
+    <key alias="createDate">Create Date</key>
+  </area>
+</language>
