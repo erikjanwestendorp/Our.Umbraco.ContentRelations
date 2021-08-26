@@ -1,5 +1,11 @@
-publish.yml use:
+# Github Actions 
+
+## publish.yml 
+use:
 
 https://github.com/marketplace/actions/publish-nuget
 
 https://github.com/brandedoutcast/publish-nuget/blob/master/action.yml
+
+## build.yml
+On PR
