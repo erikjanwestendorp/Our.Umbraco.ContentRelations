@@ -32,10 +32,6 @@
         };
 
         function save() {
-            console.log(vm.node);
-            console.log(vm.comment);
-            
-
             var data = {
                 parentId: $routeParams.id,
                 childId: vm.node.id,

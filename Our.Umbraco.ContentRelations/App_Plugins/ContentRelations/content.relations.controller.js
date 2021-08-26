@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsController($scope, $routeParams, contentRelationsResource, userService, editorService) {
+    function contentRelationsController($scope, $routeParams, contentRelationsResource, userService, editorService, overlayService, localizationService) {
 
         var vm = this;
 
@@ -22,8 +22,7 @@
         init();
 
         vm.relations = [];
-
-
+        
 
         function init() {
             getRelations();
@@ -35,7 +34,6 @@
 
             contentRelationsResource.getById($routeParams.id).then(function (data) {
                 vm.relations = data;
-                console.log(data);
                 vm.isLoading = false;
             });
 
@@ -44,8 +42,6 @@
         function setPermissions() {
 
             userService.getCurrentUser().then(function (user) {
-
-                console.log(user);
                 if (user.allowedSections.includes("settings")) {
                     vm.permissions.canBrowseSettingsSection = true;
                 }
@@ -88,7 +84,28 @@
         }
 
         function deleteRelation(relation, event) {
-            contentRelationsResource.remove(relation);
+
+            var dialog = {
+                view: "/App_Plugins/ContentRelations/overlays/delete.html",
+                relation: relation,
+                submitButtonLabelKey: "contentTypeEditor_yesDelete",
+                submitButtonStyle: "danger",
+                submit: function (model) {
+                    contentRelationsResource.remove(relation);
+                    var index = vm.relations.indexOf(relation);
+                    vm.relations.splice(index, 1);
+                    overlayService.close();
+                },
+                close: function () {
+                    overlayService.close();
+                }
+
+            };
+
+            localizationService.localize("general_delete").then(value => {
+                dialog.title = value;
+                overlayService.open(dialog);
+            });
         }
     }
 

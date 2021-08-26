@@ -12,5 +12,6 @@
     <key alias="delete">Delete</key>
     <key alias="noRelations">No relations found for this page</key>
     <key alias="createDate">Create Date</key>
+    <key alias="relationDeleteWarning">This will delete the relation with </key>
   </area>
 </language>
