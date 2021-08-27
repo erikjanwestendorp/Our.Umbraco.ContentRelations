@@ -1,27 +1,27 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-    <PropertyGroup>
-        <Our.Umbraco.ContentRelationsContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\ContentRelations\**\*.*</Our.Umbraco.ContentRelationsContentFilesPath>
-    </PropertyGroup>
+  <PropertyGroup>
+    <ContentRelationsContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\ContentRelations\**\*.*</ContentRelationsContentFilesPath>
+  </PropertyGroup>
 
-    <Target Name="CopyOur.Umbraco.ContentRelationsAssets" BeforeTargets="Build">
-        <ItemGroup>
-            <Our.Umbraco.ContentRelationsContentFiles Include="$(Our.Umbraco.ContentRelationsContentFilesPath)" />
-        </ItemGroup>
-        <Message Text="Copying Our.Umbraco.ContentRelations files: $(Our.Umbraco.ContentRelationsContentFilesPath) - #@(Our.Umbraco.ContentRelationsContentFiles->Count()) files"  Importance="high" />
-        <Copy
-            SourceFiles="@(Our.Umbraco.ContentRelationsContentFiles)"
-            DestinationFiles="@(Our.Umbraco.ContentRelationsContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\ContentRelations\%(RecursiveDir)%(Filename)%(Extension)')"
-            SkipUnchangedFiles="true" />
+  <Target Name="CopyContentRelationsAssets" BeforeTargets="Build">
+    <ItemGroup>
+      <ContentRelationsContentFiles Include="$(ContentRelationsContentFilesPath)" />
+    </ItemGroup>
+    <Message Text="Copying ContentRelations files: $(ContentRelationsContentFilesPath) - #@(ContentRelationsContentFiles->Count()) files"  Importance="high" />
+    <Copy
+      SourceFiles="@(ContentRelationsContentFiles)"
+      DestinationFiles="@(ContentRelationsContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\ContentRelations\%(RecursiveDir)%(Filename)%(Extension)')"
+      SkipUnchangedFiles="true" />
 
-    </Target>
+  </Target>
 
-    <Target Name="ClearOur.Umbraco.ContentRelationsAssets" BeforeTargets="Clean">
-        <ItemGroup>
-            <Our.Umbraco.ContentRelationsDir Include="$(MSBuildProjectDirectory)\App_Plugins\ContentRelations\" />
-        </ItemGroup>
-        <Message Text="Clear old Our.Umbraco.ContentRelations data"  Importance="high" />
-        <RemoveDir Directories="@(Our.Umbraco.ContentRelationsDir)"  />
-    </Target>
+  <Target Name="ClearContentRelationsAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <ContentRelationsDir Include="$(MSBuildProjectDirectory)\App_Plugins\ContentRelations\" />
+    </ItemGroup>
+    <Message Text="Clear old ContentRelations data"  Importance="high" />
+    <RemoveDir Directories="@(ContentRelationsDir)"  />
+  </Target>
 
 </Project>
