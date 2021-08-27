@@ -13,6 +13,8 @@
         <Description>...</Description>
         <Product>...</Product>
 
+        <PackageVersion>1.0.1-alpha</PackageVersion>
+
         <PackageProjectUrl>https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations</PackageProjectUrl>
         <PackageTags>Umbraco Package ContentRelations</PackageTags>
         
