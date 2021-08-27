@@ -29,7 +29,7 @@ namespace Our.Umbraco.ContentRelations.Notifications
                 if (relations.Any())
                 {
                     // TODO Use localization
-                    notification.CancelOperation(new EventMessage("Not allowed", "Content can not deleted because it's related to another content item", EventMessageType.Warning));
+                    notification.CancelOperation(new EventMessage("Not allowed", "Content can not deleted because it's related to another content item", EventMessageType.Error));
 
                     // TODO LOG? 
                 }

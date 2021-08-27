@@ -1,5 +1,9 @@
 ﻿{
   "javascript": [
+
+    // interceptor
+    "~/App_Plugins/ContentRelations/interceptor.js",
+
     // controllers
     "~/App_Plugins/ContentRelations/content.relations.controller.js",
     "~/App_Plugins/ContentRelations/overlays/create.controller.js",
