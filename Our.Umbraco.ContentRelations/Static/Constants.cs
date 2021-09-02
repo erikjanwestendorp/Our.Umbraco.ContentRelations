@@ -33,8 +33,16 @@
                 public const string Alias = "contentRelationsRelatedContent";
                 public const string Name = "Related Content";
             }
+        }
 
-            
+        public static class Text
+        {
+            public static class Notifications
+            {
+                public const string Area = "contentRelationsMessages";
+                public const string DeleteNotAllowedCategory = "deleteNotAllowedCategory";
+                public const string DeleteNotAllowedMessage = "deleteNotAllowedMessage";
+            }
         }
 
     }
