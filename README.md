@@ -7,6 +7,6 @@ Username: admin@admin.com
 Password: 0123456789
 
 ### Editor  
-Username: editor@editor.com
+Username: edito@editor.com   
 Password: 0123456789
 
