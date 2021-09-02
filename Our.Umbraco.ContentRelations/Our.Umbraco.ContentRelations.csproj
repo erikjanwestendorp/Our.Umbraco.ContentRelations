@@ -10,10 +10,11 @@
         <Authors>Erik-Jan Westendorp</Authors>
         
         <Copyright>Copyright 2021</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Description>...</Description>
         <Product>...</Product>
 
-        <PackageVersion>1.0.1-alpha01</PackageVersion>
+        <PackageVersion>1.0.1-alpha02</PackageVersion>
 
         <PackageProjectUrl>https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations</PackageProjectUrl>
         <PackageTags>Umbraco Package ContentRelations</PackageTags>

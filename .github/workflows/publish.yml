@@ -31,7 +31,7 @@ jobs:
           PROJECT_FILE_PATH: Our.Umbraco.ContentRelations/Our.Umbraco.ContentRelations.csproj
           
           # Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX
-          VERSION_STATIC: 1.0.1-alpha01
+          VERSION_STATIC: 1.0.1-alpha02
           
           # API key to authenticate with NuGet server
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
