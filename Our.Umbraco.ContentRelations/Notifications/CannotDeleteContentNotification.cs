@@ -14,6 +14,8 @@ namespace Our.Umbraco.ContentRelations.Notifications
         private readonly ILogger<CannotDeleteContentNotification> _logger;
         private readonly IContentRelationsService _relationService;
         private readonly ILocalizedTextService _localizedTextService;
+       
+
 
         public CannotDeleteContentNotification(
             ILogger<CannotDeleteContentNotification> logger,
@@ -39,8 +41,11 @@ namespace Our.Umbraco.ContentRelations.Notifications
                     var message = _localizedTextService.Localize(area, Static.Constants.Text.Notifications.DeleteNotAllowedMessage, CultureInfo.CurrentCulture);
 
                     notification.CancelOperation(new EventMessage(category, message, EventMessageType.Error));
+                    
 
-                    // TODO LOG? 
+                    // TODO add current user 
+                    _logger.LogInformation("Notify user that it is not allowed to delete node with id {Id} because it is related to other nodes", moveEventInfo.Entity.Id);
+        
                 }
             }
         }
