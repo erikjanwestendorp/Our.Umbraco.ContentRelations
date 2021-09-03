@@ -5,7 +5,6 @@ using Our.Umbraco.ContentRelations.Services;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Notifications;
 using Umbraco.Cms.Core.Services;
-using Umbraco.Cms.Core.Web;
 
 
 namespace Our.Umbraco.ContentRelations.Notifications
@@ -43,6 +42,8 @@ namespace Our.Umbraco.ContentRelations.Notifications
 
                     notification.CancelOperation(new EventMessage(category, message, EventMessageType.Error));
                     
+
+                    // TODO add current user 
                     _logger.LogInformation("Notify user that it is not allowed to delete node with id {Id} because it is related to other nodes", moveEventInfo.Entity.Id);
         
                 }
