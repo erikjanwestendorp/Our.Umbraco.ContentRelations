@@ -84,6 +84,17 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
 
         }
 
+        public bool Exists(RelationViewModel relation)
+        {
+            var allRelations = _relationService.GetAllRelationsByRelationType(RelationType());
+
+            if (allRelations.Any(x => x.ChildId == relation.ChildId && x.ParentId == relation.ParentId))
+                return true;
+
+            return false;
+
+        }
+
         public bool Delete(int id)
         {
             var r = _relationService.GetById(id);

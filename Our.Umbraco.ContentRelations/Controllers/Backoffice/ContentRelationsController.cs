@@ -35,7 +35,13 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
             // TODO VALIDATION
             // TODO IS relation valid
             // TODO RETURN ATTEMPT? 
-            // TODO DOES RELATION ALREADY EXIST?
+
+
+            if (_relationService.Exists(relation))
+            {
+                return relation;
+            }
+                
 
             return _relationService.Save(relation);
         }
