@@ -7,6 +7,8 @@ namespace Our.Umbraco.ContentRelations.Services
     {
         IEnumerable<RelationViewModel> GetRelationsByContentId(int id);
         RelationViewModel Save(RelationViewModel relation);
+
+        bool Exists(RelationViewModel relation);
         bool Delete(int id);
     }
 }
