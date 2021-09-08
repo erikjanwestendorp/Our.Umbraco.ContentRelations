@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsController($scope, $routeParams, contentRelationsResource, userService, editorService, overlayService, localizationService) {
+    function contentRelationsController($scope, $routeParams, contentRelationsResource, userService, editorService, overlayService, localizationService, notificationsService) {
 
         var vm = this;
 
@@ -71,7 +71,16 @@
                 view: "/App_Plugins/ContentRelations/overlays/create.html",
                 size: "small",
                 submit: function (model) {
-                    vm.relations.push(model);
+                    
+                    if (model && !model.succeeded) {
+                        notificationsService.error(model.message.category, model.message.message);
+                    }
+
+                    if (model && model.succeeded) {
+                        notificationsService.success(model.message.category, model.message.message);
+                        vm.relations.push(model.content);
+                    }
+                    
                     editorService.close();
                 },
                 close: function () {
