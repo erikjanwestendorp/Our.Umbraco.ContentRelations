@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Our.Umbraco.ContentRelations.Common;
 using Our.Umbraco.ContentRelations.Services;
 using Our.Umbraco.ContentRelations.ViewModels;
+using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Web.BackOffice.Controllers;
 using Umbraco.Cms.Web.Common.Authorization;
 
@@ -30,20 +32,18 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 
         [HttpPost]
         [Authorize(Policy = AuthorizationPolicies.SectionAccessSettings)]
-        public RelationViewModel AddRelation(RelationViewModel relation)
+        public Attempt<RelationViewModel> AddRelation(RelationViewModel relation)
         {
             // TODO VALIDATION
             // TODO IS relation valid
-            // TODO RETURN ATTEMPT? 
-
-
+            
             if (_relationService.Exists(relation))
             {
-                return relation;
+                return Attempt<RelationViewModel>.Failed(relation, "Not allowed", "This relation already exists", EventMessageType.Error);
             }
                 
 
-            return _relationService.Save(relation);
+            return Attempt<RelationViewModel>.Success(_relationService.Save(relation),"Succeeded", "The relation has been added successfully");
         }
 
         [HttpDelete]
