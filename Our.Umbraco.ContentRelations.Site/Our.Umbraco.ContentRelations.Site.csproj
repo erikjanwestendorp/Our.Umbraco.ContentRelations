@@ -43,6 +43,15 @@
         <Content Remove="umbraco\models\**" />
     </ItemGroup>
     <ItemGroup>
+      <None Remove="App_Plugins\ContentRelations\backoffice\contentrelationssettings\settingsdashboard.html" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="App_Plugins\ContentRelations\backoffice\contentrelationssettings\settingsdashboard.html">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+    <ItemGroup>
       <ProjectReference Include="..\Our.Umbraco.ContentRelations\Our.Umbraco.ContentRelations.csproj" />
     </ItemGroup>
 
