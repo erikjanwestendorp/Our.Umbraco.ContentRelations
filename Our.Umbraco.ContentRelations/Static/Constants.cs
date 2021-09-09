@@ -6,6 +6,13 @@
         {
             public const string Name = "Our.Umbraco.ContentRelations";
             public const string Alias = "ourUmbracoContentRelations";
+            public const string Icon = "icon-trafic";
+
+            public const string SettingsTreeAlias = "contentRelationsSettings";
+            public const string SettingsTreeTitle = "Content Relations Settings";
+            public const string SettingsAreaName = "ContentRelations";
+            public const string TreeRoutePath = "/contentrelationssettings/settingsdashboard";
+            public const string TreeGroup = "thirdParty";
         }
 
         public static class Apps
@@ -14,7 +21,7 @@
             {
                 public const string Alias = "contentRelations";
                 public const string Name = "Relations";
-                public const string Icon = "icon-trafic";
+                public const string Icon = Package.Icon;
                 public const string View = "/App_Plugins/ContentRelations/info.html";
                 public const int Weight = 0;
 

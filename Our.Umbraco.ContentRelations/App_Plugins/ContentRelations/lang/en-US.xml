@@ -4,6 +4,9 @@
 		<name>Erik-Jan Westendorp</name>
 		<link>https://www.erikjanwestendorp.nl</link>
 	</creator>
+	<area alias="treeHeaders">
+		<key alias="thirdParty">Third party</key>
+	</area>
 	<area alias="default">
 		<key alias="node">Node</key>
 		<key alias="comment">Comment</key>
