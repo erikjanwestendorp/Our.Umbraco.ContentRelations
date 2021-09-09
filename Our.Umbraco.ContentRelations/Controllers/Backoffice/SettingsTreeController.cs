@@ -13,7 +13,7 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
         sectionAlias: Constants.Applications.Settings,
         treeAlias: Static.Constants.Package.SettingsTreeAlias,
         TreeTitle = Static.Constants.Package.SettingsTreeTitle,
-        TreeGroup = "Third Party"
+        TreeGroup = Static.Constants.Package.TreeGroup
         )]
     [PluginController(areaName: Static.Constants.Package.SettingsAreaName)]
     public class SettingsTreeController : TreeController
