@@ -17,6 +17,9 @@
 		<key alias="createDate">Create Date</key>
 		<key alias="relationDeleteWarning">This will delete the relation with </key>
 	</area>
+	<area alias="contentRelationsPermissions">
+		<key alias="headerText">Permissions</key>
+	</area>
 	<area alias="contentRelationsMessages">
 		<key alias="deleteNotAllowedCategory">Not allowed</key>
 		<key alias="deleteNotAllowedMessage">Content can not deleted because it's related to another content item</key>
