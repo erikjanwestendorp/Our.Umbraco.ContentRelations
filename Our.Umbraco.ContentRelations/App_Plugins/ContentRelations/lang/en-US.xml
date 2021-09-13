@@ -19,6 +19,7 @@
 	</area>
 	<area alias="contentRelationsPermissions">
 		<key alias="headerText">Permissions</key>
+		<key alias="deletePermission">Delete permissions</key>
 	</area>
 	<area alias="contentRelationsMessages">
 		<key alias="deleteNotAllowedCategory">Not allowed</key>
