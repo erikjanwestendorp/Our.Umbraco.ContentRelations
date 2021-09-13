@@ -38,6 +38,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="App_Plugins\ContentRelations\backoffice\contentrelationssettings\settings.controller.js" />
       <None Remove="App_Plugins\ContentRelations\backoffice\settings.dashboard.html" />
       <None Remove="App_Plugins\ContentRelations\interceptor.js" />
       <None Remove="App_Plugins\ContentRelations\views\delete.html" />
