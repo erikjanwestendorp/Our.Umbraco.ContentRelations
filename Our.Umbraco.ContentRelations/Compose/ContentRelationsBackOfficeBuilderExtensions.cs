@@ -24,7 +24,8 @@ namespace Our.Umbraco.ContentRelations.Compose
             // Add Mappings
             builder.WithCollectionBuilder<MapDefinitionCollectionBuilder>()
                 .Add<RelationMappings>()
-                .Add<ContentMappings>();
+                .Add<ContentMappings>()
+                .Add<UserGroupMappings>();
 
             // Add Components 
             builder.Components()

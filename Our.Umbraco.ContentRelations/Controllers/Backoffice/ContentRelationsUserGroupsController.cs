@@ -9,12 +9,12 @@ using Umbraco.Cms.Web.BackOffice.Controllers;
 
 namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 {
-    public class UserGroupsController : UmbracoAuthorizedApiController
+    public class ContentRelationsUserGroupsController : UmbracoAuthorizedApiController
     {
         private readonly IUserService _userService;
         private readonly IUmbracoMapper _umbracoMapper;
 
-        public UserGroupsController(
+        public ContentRelationsUserGroupsController(
             IUserService userService, 
             IUmbracoMapper umbracoMapper)
         {
