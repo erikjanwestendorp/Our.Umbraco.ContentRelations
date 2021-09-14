@@ -1,13 +1,13 @@
 ﻿(function () {
     'use strict';
 
-    function userGroupsResource($http, $q) {
+    function contentRelationsUserGroupsResource($http, $q) {
         var service = {
             getAll: getAll
         };
 
-        var baseUrl = Umbraco.Sys.ServerVariables.ourUmbracoContentRelations.userGroups;
-
+        var baseUrl = Umbraco.Sys.ServerVariables.ourUmbracoContentRelations.contentRelationsUserGroups;
+        console.log(baseUrl);
         return service;
 
         function getAll() {
@@ -30,5 +30,5 @@
       
     }
 
-    angular.module('umbraco.services').factory('userGroupsResource', userGroupsResource);
+    angular.module('umbraco.services').factory('contentRelationsUserGroupsResource', contentRelationsUserGroupsResource);
 })();

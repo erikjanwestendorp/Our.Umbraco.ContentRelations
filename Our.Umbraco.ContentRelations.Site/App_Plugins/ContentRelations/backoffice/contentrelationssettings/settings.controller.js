@@ -1,16 +1,17 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsSettingsController($scope, userGroupsResource) {
+    function contentRelationsSettingsController($scope, contentRelationsUserGroupsResource) {
 
         var vm = this;
 
         console.log("content relations settings");
         vm.loading = true;
+        
 
         function init() {
 
-            userGroupsResource.getAll().then(function (data) {
+            contentRelationsUserGroupsResource.getAll().then(function (data) {
                 console.log(data);
             });
 
