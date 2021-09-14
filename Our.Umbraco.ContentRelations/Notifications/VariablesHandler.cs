@@ -21,8 +21,8 @@ namespace Our.Umbraco.ContentRelations.Notifications
         {
             notification.ServerVariables.Add(Constants.Package.Alias, new Dictionary<string, object>
             {
-                {Constants.ApiPaths.ContentRelationsController, _linkGenerator.GetUmbracoApiServiceBaseUrl<ContentRelationsController>(controller => controller.GetRelationsByContentId(0))}
-
+                { Constants.ApiPaths.ContentRelationsController, _linkGenerator.GetUmbracoApiServiceBaseUrl<ContentRelationsController>(controller => controller.GetRelationsByContentId(0))},
+                { Constants.ApiPaths.UserGroupsController, _linkGenerator.GetUmbracoApiServiceBaseUrl<UserGroupsController>(controller => controller.GetUserGroups())}
             });
         }
     }

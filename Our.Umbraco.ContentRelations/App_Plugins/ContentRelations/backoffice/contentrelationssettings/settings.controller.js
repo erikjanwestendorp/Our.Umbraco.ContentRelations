@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsSettingsController($scope) {
+    function contentRelationsSettingsController($scope, userGroupsResource) {
 
         var vm = this;
 
@@ -9,6 +9,10 @@
         vm.loading = true;
 
         function init() {
+
+            userGroupsResource.getAll().then(function (data) {
+                console.log(data);
+            });
 
             vm.loading = false;
         }
