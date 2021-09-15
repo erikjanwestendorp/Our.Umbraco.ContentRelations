@@ -5,14 +5,14 @@
 
         var vm = this;
 
-        console.log("content relations settings");
-        vm.loading = true;
         
-
+        vm.loading = true;
+        vm.deleteGroups = [];
+        
         function init() {
 
             contentRelationsUserGroupsResource.getAll().then(function (data) {
-                console.log(data);
+                vm.deleteGroups = data;
             });
 
             vm.loading = false;

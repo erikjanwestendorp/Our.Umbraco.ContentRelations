@@ -7,11 +7,11 @@
         };
 
         var baseUrl = Umbraco.Sys.ServerVariables.ourUmbracoContentRelations.contentRelationsUserGroups;
-        console.log(baseUrl);
+        
         return service;
 
         function getAll() {
-            console.log(baseUrl);
+            
 
             return $http.get(baseUrl + "GetUserGroups").then(success, error);
 
