@@ -9,4 +9,3 @@ Password: 0123456789
 ### Editor  
 Username: edito@editor.com   
 Password: 0123456789
-
