@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsSettingsController($scope, contentRelationsUserGroupsResource) {
+    function contentRelationsSettingsController($scope, contentRelationsUserGroupsResource, notificationsService) {
 
         var vm = this;
 
@@ -12,7 +12,15 @@
         function init() {
 
             contentRelationsUserGroupsResource.getAll().then(function (data) {
-                vm.deleteGroups = data;
+                
+                if (!data.succeeded) {
+                    notificationsService.error(data.message.category, data.message.message);
+                }
+
+                if (data.succeeded) {
+                    vm.deleteGroups = data.content;
+                }
+                
             });
 
             vm.loading = false;

@@ -28,6 +28,17 @@ namespace Our.Umbraco.ContentRelations.Common
             };
         }
 
+        public static Attempt<T> Success(T content)
+        {
+            return new Attempt<T>
+            {
+                Content = content,
+                Succeeded = true,
+                Message = new EventMessage(string.Empty, string.Empty)
+            };
+
+        }
+
         public new static Attempt<T> Failed(string category, string message, EventMessageType type)
         {
             return new Attempt<T>
