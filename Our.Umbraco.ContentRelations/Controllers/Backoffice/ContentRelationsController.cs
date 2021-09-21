@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Our.Umbraco.ContentRelations.Common;
 using Our.Umbraco.ContentRelations.Services;
 using Our.Umbraco.ContentRelations.ViewModels;
@@ -14,12 +15,15 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
     public class ContentRelationsController : UmbracoAuthorizedApiController
     {
         private readonly IContentRelationsService _relationService;
+        private readonly ILogger<ContentRelationsController> _logger;
 
 
         public ContentRelationsController(
-            IContentRelationsService relationService)
+            IContentRelationsService relationService,
+            ILogger<ContentRelationsController> logger)
         {
             _relationService = relationService;
+            _logger = logger;
 
         }
 
@@ -39,6 +43,7 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
             
             if (_relationService.Exists(relation))
             {
+                _logger.LogInformation("Cannot add relation because a relation between these nodes already exists. {childId}, {parentId}", relation.ChildId, relation.ParentId);
                 return Attempt<RelationViewModel>.Failed(relation, "Not allowed", "This relation already exists", EventMessageType.Error);
             }
                 
