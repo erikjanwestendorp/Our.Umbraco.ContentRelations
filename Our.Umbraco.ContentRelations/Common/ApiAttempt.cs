@@ -3,14 +3,14 @@
 namespace Our.Umbraco.ContentRelations.Common
 {
 
-    public class Attempt<T> : Attempt
+    public class ApiAttempt<T> : ApiAttempt
         where T : class
     {
         public T Content { get; set; }
 
-        public new static Attempt Success(string category, string message)
+        public new static ApiAttempt Success(string category, string message)
         {
-            return new Attempt<T>
+            return new ApiAttempt<T>
             {
                 Succeeded = true,
                 Content = default,
@@ -18,9 +18,9 @@ namespace Our.Umbraco.ContentRelations.Common
             };
         }
 
-        public static Attempt<T> Success(T content, string category, string message)
+        public static ApiAttempt<T> Success(T content, string category, string message)
         {
-            return new Attempt<T>
+            return new ApiAttempt<T>
             {
                 Succeeded = true,
                 Content = content,
@@ -28,9 +28,9 @@ namespace Our.Umbraco.ContentRelations.Common
             };
         }
 
-        public static Attempt<T> Success(T content)
+        public static ApiAttempt<T> Success(T content)
         {
-            return new Attempt<T>
+            return new ApiAttempt<T>
             {
                 Content = content,
                 Succeeded = true,
@@ -39,9 +39,9 @@ namespace Our.Umbraco.ContentRelations.Common
 
         }
 
-        public new static Attempt<T> Failed(string category, string message, EventMessageType type)
+        public new static ApiAttempt<T> Failed(string category, string message, EventMessageType type)
         {
-            return new Attempt<T>
+            return new ApiAttempt<T>
             {
                 Succeeded = false,
                 Content = default,
@@ -49,9 +49,9 @@ namespace Our.Umbraco.ContentRelations.Common
             };
         }
 
-        public static Attempt<T> Failed(T content, string category, string message, EventMessageType type)
+        public static ApiAttempt<T> Failed(T content, string category, string message, EventMessageType type)
         {
-            return new Attempt<T>
+            return new ApiAttempt<T>
             {
                 Succeeded = false,
                 Content = content,
@@ -62,23 +62,23 @@ namespace Our.Umbraco.ContentRelations.Common
 
     }
 
-    public class Attempt
+    public class ApiAttempt
     {
         public bool Succeeded { get; set; }
         public EventMessage Message { get; set; }
 
-        public static Attempt Success(string category, string message)
+        public static ApiAttempt Success(string category, string message)
         {
-            return new Attempt
+            return new ApiAttempt
             {
                 Succeeded = true,
                 Message = new EventMessage(category, message, EventMessageType.Success)
             };
         }
 
-        public static Attempt Failed(string category, string message, EventMessageType type)
+        public static ApiAttempt Failed(string category, string message, EventMessageType type)
         {
-            return new Attempt
+            return new ApiAttempt
             {
                 Succeeded = false,
                 Message = new EventMessage(category, message, type)
