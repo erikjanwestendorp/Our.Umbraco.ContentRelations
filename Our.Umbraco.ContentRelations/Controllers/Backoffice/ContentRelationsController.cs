@@ -36,7 +36,7 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 
         [HttpPost]
         [Authorize(Policy = AuthorizationPolicies.SectionAccessSettings)]
-        public Attempt<RelationViewModel> AddRelation(RelationViewModel relation)
+        public ApiAttempt<RelationViewModel> AddRelation(RelationViewModel relation)
         {
             // TODO VALIDATION
             // TODO IS relation valid
@@ -44,11 +44,11 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
             if (_relationService.Exists(relation))
             {
                 _logger.LogInformation("Cannot add relation because a relation between these nodes already exists. {childId}, {parentId}", relation.ChildId, relation.ParentId);
-                return Attempt<RelationViewModel>.Failed(relation, "Not allowed", "This relation already exists", EventMessageType.Error);
+                return ApiAttempt<RelationViewModel>.Failed(relation, "Not allowed", "This relation already exists", EventMessageType.Error);
             }
                 
 
-            return Attempt<RelationViewModel>.Success(_relationService.Save(relation),"Succeeded", "The relation has been added successfully");
+            return ApiAttempt<RelationViewModel>.Success(_relationService.Save(relation),"Succeeded", "The relation has been added successfully");
         }
 
         [HttpDelete]
