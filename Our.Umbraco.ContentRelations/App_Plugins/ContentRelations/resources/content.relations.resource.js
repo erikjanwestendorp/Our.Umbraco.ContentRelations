@@ -8,7 +8,7 @@
             remove: remove
         };
 
-        var baseUrl = Umbraco.Sys.ServerVariables.ourUmbracoContentRelations.contentRelations;
+        var baseUrl = Umbraco.Sys.ServerVariables.ourUmbracoContentRelations.relations;
 
         return service;
 
