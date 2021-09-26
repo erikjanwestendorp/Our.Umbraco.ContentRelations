@@ -10,7 +10,7 @@
             public const string Icon = "icon-trafic";
 
             public const string SettingsTreeAlias = "contentRelationsSettings";
-            public const string SettingsTreeTitle = "Content Relations Settings";
+            public const string SettingsTreeTitle = "Content Relations";
             public const string TreeRoutePath = "/contentrelationssettings/settingsdashboard";
             public const string TreeGroup = "thirdParty";
         }
