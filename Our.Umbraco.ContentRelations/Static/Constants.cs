@@ -11,7 +11,6 @@
 
             public const string SettingsTreeAlias = "contentRelationsSettings";
             public const string SettingsTreeTitle = "Content Relations Settings";
-            public const string SettingsAreaName = "ContentRelations";
             public const string TreeRoutePath = "/contentrelationssettings/settingsdashboard";
             public const string TreeGroup = "thirdParty";
         }
