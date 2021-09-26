@@ -14,9 +14,10 @@
         <Description>...</Description>
         <Product>...</Product>
 
-        <PackageVersion>1.0.1-alpha02</PackageVersion>
+		<PackageVersion>1.0.1-alpha02</PackageVersion>
+		<Version>$(PackageVersion)</Version>
 
-        <PackageProjectUrl>https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations</PackageProjectUrl>
+	    <PackageProjectUrl>https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations</PackageProjectUrl>
         <PackageTags>Umbraco Package ContentRelations</PackageTags>
         
     </PropertyGroup>
