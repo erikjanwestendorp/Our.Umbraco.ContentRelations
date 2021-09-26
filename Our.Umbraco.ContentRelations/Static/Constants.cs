@@ -32,6 +32,7 @@
         {
             public const string ContentRelationsController = "contentRelations";
             public const string ContentRelationsUserGroupsController = "contentRelationsUserGroups";
+            public const string ContentRelationsPackageController = "package";
         }
 
         public static class RelationTypes

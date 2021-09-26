@@ -1,15 +1,20 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsSettingsController($scope, contentRelationsUserGroupsResource, notificationsService) {
+    function contentRelationsSettingsController($scope, contentRelationsUserGroupsResource, notificationsService, packageInformationResource) {
 
         var vm = this;
 
         
         vm.loading = true;
         vm.deleteGroups = [];
+
+        vm.packageInfo = {};
         
         function init() {
+            packageInformationResource.getInfo().then(function(data) {
+                vm.packageInfo = data.content;
+            });
 
             contentRelationsUserGroupsResource.getAll().then(function (data) {
                 
