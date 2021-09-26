@@ -4,6 +4,7 @@
     {
         public static class Package
         {
+            public const string PluginName = "ContentRelations";
             public const string Name = "Our.Umbraco.ContentRelations";
             public const string Alias = "ourUmbracoContentRelations";
             public const string Icon = "icon-trafic";
