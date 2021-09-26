@@ -2,13 +2,14 @@
 using Microsoft.Extensions.Logging;
 using Our.Umbraco.ContentRelations.Common;
 using Our.Umbraco.ContentRelations.Extensions;
+using Our.Umbraco.ContentRelations.Static;
 using Our.Umbraco.ContentRelations.ViewModels;
 using Umbraco.Cms.Web.BackOffice.Controllers;
 using Umbraco.Cms.Web.Common.Attributes;
 
 namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 {
-    [PluginController("ContentRelations")]
+    [PluginController(Constants.Package.PluginName)]
     public class PackageController : UmbracoAuthorizedApiController
     {
         private readonly ILogger<PackageController> _logger;
