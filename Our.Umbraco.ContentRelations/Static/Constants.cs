@@ -11,7 +11,6 @@
 
             public const string SettingsTreeAlias = "contentRelationsSettings";
             public const string SettingsTreeTitle = "Content Relations Settings";
-            public const string SettingsAreaName = "ContentRelations";
             public const string TreeRoutePath = "/contentrelationssettings/settingsdashboard";
             public const string TreeGroup = "thirdParty";
         }
@@ -31,9 +30,9 @@
 
         public static class ApiPaths
         {
-            public const string ContentRelationsController = "contentRelations";
-            public const string ContentRelationsUserGroupsController = "contentRelationsUserGroups";
-            public const string ContentRelationsPackageController = "package";
+            public const string RelationsController = "relations";
+            public const string UserGroupsController = "userGroups";
+            public const string PackageController = "package";
         }
 
         public static class RelationTypes

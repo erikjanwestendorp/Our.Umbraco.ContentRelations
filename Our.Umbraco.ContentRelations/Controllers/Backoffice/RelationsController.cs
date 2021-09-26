@@ -4,23 +4,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Our.Umbraco.ContentRelations.Common;
 using Our.Umbraco.ContentRelations.Services;
+using Our.Umbraco.ContentRelations.Static;
 using Our.Umbraco.ContentRelations.ViewModels;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Web.BackOffice.Controllers;
+using Umbraco.Cms.Web.Common.Attributes;
 using Umbraco.Cms.Web.Common.Authorization;
 
 namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 {
-
-    public class ContentRelationsController : UmbracoAuthorizedApiController
+    [PluginController(Constants.Package.PluginName)]
+    public class RelationsController : UmbracoAuthorizedApiController
     {
         private readonly IContentRelationsService _relationService;
-        private readonly ILogger<ContentRelationsController> _logger;
+        private readonly ILogger<RelationsController> _logger;
 
 
-        public ContentRelationsController(
+        public RelationsController(
             IContentRelationsService relationService,
-            ILogger<ContentRelationsController> logger)
+            ILogger<RelationsController> logger)
         {
             _relationService = relationService;
             _logger = logger;

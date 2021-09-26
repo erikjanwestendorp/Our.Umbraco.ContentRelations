@@ -6,7 +6,7 @@
             getAll: getAll
         };
 
-        var baseUrl = Umbraco.Sys.ServerVariables.ourUmbracoContentRelations.contentRelationsUserGroups;
+        var baseUrl = Umbraco.Sys.ServerVariables.ourUmbracoContentRelations.userGroups;
         
         return service;
 
@@ -22,12 +22,7 @@
             function error(result) {
                 return $q.reject(result);
             }
-            //TODO
         }
-
-
-        
-      
     }
 
     angular.module('umbraco.services').factory('contentRelationsUserGroupsResource', contentRelationsUserGroupsResource);

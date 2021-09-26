@@ -15,7 +15,7 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
         TreeTitle = Static.Constants.Package.SettingsTreeTitle,
         TreeGroup = Static.Constants.Package.TreeGroup
         )]
-    [PluginController(areaName: Static.Constants.Package.SettingsAreaName)]
+    [PluginController(areaName: Static.Constants.Package.PluginName)]
     public class SettingsTreeController : TreeController
     {
         public SettingsTreeController(ILocalizedTextService localizedTextService, UmbracoApiControllerTypeCollection umbracoApiControllerTypeCollection, IEventAggregator eventAggregator) 
