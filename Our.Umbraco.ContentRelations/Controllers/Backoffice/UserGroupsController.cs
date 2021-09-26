@@ -9,10 +9,12 @@ using Umbraco.Cms.Core.Mapping;
 using Umbraco.Cms.Core.Models.Membership;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Web.BackOffice.Controllers;
+using Umbraco.Cms.Web.Common.Attributes;
 
 namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 {
-    public class ContentRelationsUserGroupsController : UmbracoAuthorizedApiController
+    [PluginController(Static.Constants.Package.PluginName)]
+    public class UserGroupsController : UmbracoAuthorizedApiController
     {
         private readonly IUserService _userService;
         private readonly IUmbracoMapper _umbracoMapper;
@@ -20,7 +22,7 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 
         private Guid _key = Guid.Parse("CFC88F56-CDAB-430B-8CB2-ED879C4ACA8C");
 
-        public ContentRelationsUserGroupsController(
+        public UserGroupsController(
             IUserService userService, 
             IUmbracoMapper umbracoMapper,
             IKeyValueService keyValueService)

@@ -32,8 +32,8 @@
         public static class ApiPaths
         {
             public const string ContentRelationsController = "contentRelations";
-            public const string ContentRelationsUserGroupsController = "contentRelationsUserGroups";
-            public const string ContentRelationsPackageController = "package";
+            public const string UserGroupsController = "userGroups";
+            public const string PackageController = "package";
         }
 
         public static class RelationTypes
