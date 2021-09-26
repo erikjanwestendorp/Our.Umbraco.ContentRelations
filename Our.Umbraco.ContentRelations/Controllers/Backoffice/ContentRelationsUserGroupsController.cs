@@ -25,7 +25,7 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
             IUmbracoMapper umbracoMapper,
             IKeyValueService keyValueService)
         {
-            _userService = userService;
+            _userService = userService; 
             _umbracoMapper = umbracoMapper;
             _keyValueService = keyValueService;
         }

@@ -33,7 +33,7 @@ namespace Our.Umbraco.ContentRelations.Compose
 
             // Add Services 
             builder.Services.AddUnique<IContentRelationsService, ContentRelationsService>();
-            
+           
             return builder;
         }
     }
