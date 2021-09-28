@@ -25,7 +25,6 @@
                 <umb-box-header title-key="contentRelationsPermissions_deletePermission"></umb-box-header>
                 <umb-box-content>
                     Delete permissions can be set here
-
                     <div class="umb-table">
                         <div class="umb-table-body">
                             <div class="umb-table-row" ng-repeat="item in vm.deleteGroups">
@@ -34,7 +33,8 @@
                                 </div>
                                 <div class="umb-table-cell">
                                     <umb-toggle checked="item.checked"
-                                                on-click="vm.toggleCreatePermission($index)">
+                                                disabled="false"
+                                                on-click="vm.toggleDeletePermission($index)">
 
                                     </umb-toggle>
                                 </div>
@@ -46,6 +46,17 @@
 
 
         </umb-editor-container>
+
+        <umb-editor-footer>
+            <umb-editor-footer-content-right>
+                <umb-button type="button"
+                            button-style="success"
+                            label-key="buttons_save"
+                            action="vm.saveSettings()"
+                            disabled="vm.saving" />
+            </umb-editor-footer-content-right>
+            
+        </umb-editor-footer>
 
     </umb-editor-view>
 

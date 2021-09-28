@@ -1,4 +1,6 @@
-﻿namespace Our.Umbraco.ContentRelations.Static
+﻿using System;
+
+namespace Our.Umbraco.ContentRelations.Static
 {
     public static class Constants
     {
@@ -10,7 +12,7 @@
             public const string Icon = "icon-trafic";
 
             public const string SettingsTreeAlias = "contentRelationsSettings";
-            public const string SettingsTreeTitle = "Content Relations Settings";
+            public const string SettingsTreeTitle = "Content Relations";
             public const string TreeRoutePath = "/contentrelationssettings/settingsdashboard";
             public const string TreeGroup = "thirdParty";
         }
@@ -52,6 +54,11 @@
                 public const string DeleteNotAllowedCategory = "deleteNotAllowedCategory";
                 public const string DeleteNotAllowedMessage = "deleteNotAllowedMessage";
             }
+        }
+
+        public static class KeyValues
+        {
+            public const string SettingsKey = "contentRelationsSettings{CFC88F56-CDAB-430B-8CB2-ED879C4ACA8C}";
         }
 
     }

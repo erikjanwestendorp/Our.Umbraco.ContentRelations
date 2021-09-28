@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Our.Umbraco.ContentRelations.Common;
+using Our.Umbraco.ContentRelations.Services;
 using Our.Umbraco.ContentRelations.ViewModels;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Events;
@@ -18,18 +18,17 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
     {
         private readonly IUserService _userService;
         private readonly IUmbracoMapper _umbracoMapper;
-        private readonly IKeyValueService _keyValueService;
+        private readonly IPermissionService _permissionService;
 
-        private Guid _key = Guid.Parse("CFC88F56-CDAB-430B-8CB2-ED879C4ACA8C");
 
         public UserGroupsController(
             IUserService userService, 
             IUmbracoMapper umbracoMapper,
-            IKeyValueService keyValueService)
+            IPermissionService permissionService)
         {
             _userService = userService; 
             _umbracoMapper = umbracoMapper;
-            _keyValueService = keyValueService;
+            _permissionService = permissionService;
         }
 
         public ApiAttempt<IEnumerable<UserGroupViewModel>> GetUserGroups()
@@ -44,6 +43,21 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
             
 
             return ApiAttempt<IEnumerable<UserGroupViewModel>>.Success(userGroups);
+        }
+
+        public ApiAttempt<PermissionsViewModel> GetConfiguration()
+        {
+            return ApiAttempt<PermissionsViewModel>.Success(_permissionService.GetPermissions());
+        }
+
+        public ApiAttempt<PermissionsViewModel> SaveConfiguration(PermissionsViewModel permissions)
+        {
+            var saveAttempt = _permissionService.SavePermissionViewModel(permissions);
+
+            if(saveAttempt.Success)
+                return ApiAttempt<PermissionsViewModel>.Success(saveAttempt.Result);
+
+            return ApiAttempt<PermissionsViewModel>.Failed("Configuration", "Cannot save configuration", EventMessageType.Error);
         }
     }
 }
