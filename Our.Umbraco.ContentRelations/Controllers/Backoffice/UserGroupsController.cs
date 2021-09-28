@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Our.Umbraco.ContentRelations.Common;
 using Our.Umbraco.ContentRelations.Services;
@@ -53,7 +52,12 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
 
         public ApiAttempt<PermissionsViewModel> SaveConfiguration(PermissionsViewModel permissions)
         {
-            return ApiAttempt<PermissionsViewModel>.Success(_permissionService.SavePermissionViewModel(permissions));
+            var saveAttempt = _permissionService.SavePermissionViewModel(permissions);
+
+            if(saveAttempt.Success)
+                return ApiAttempt<PermissionsViewModel>.Success(saveAttempt.Result);
+
+            return ApiAttempt<PermissionsViewModel>.Failed("Configuration", "Cannot save configuration", EventMessageType.Error);
         }
     }
 }

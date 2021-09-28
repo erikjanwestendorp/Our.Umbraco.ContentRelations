@@ -1,10 +1,11 @@
 ﻿using Our.Umbraco.ContentRelations.ViewModels;
+using Umbraco.Cms.Core;
 
 namespace Our.Umbraco.ContentRelations.Services
 {
     public interface IPermissionService
     {
         PermissionsViewModel GetPermissions();
-        PermissionsViewModel SavePermissionViewModel(PermissionsViewModel permissionViewModel);
+        Attempt<PermissionsViewModel> SavePermissionViewModel(PermissionsViewModel permissionViewModel);
     }
 }

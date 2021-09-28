@@ -1,5 +1,6 @@
 ﻿using System;
 using J2N.Collections.Generic;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Our.Umbraco.ContentRelations.ViewModels;
 using Umbraco.Cms.Core;
@@ -10,17 +11,19 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
     public class PermissionService : IPermissionService
     {
         private readonly IKeyValueService _keyValueService;
+        private readonly ILogger<PermissionService> _logger;
         
-        private Guid _key = Guid.Parse("CFC88F56-CDAB-430B-8CB2-ED879C4ACA8C");
-
-        public PermissionService(IKeyValueService keyValueService)
+        public PermissionService(
+            IKeyValueService keyValueService,
+            ILogger<PermissionService> logger)
         {
             _keyValueService = keyValueService;
+            _logger = logger;
         }
 
         public PermissionsViewModel GetPermissions()
         {
-            var settings = _keyValueService.GetValue("contentRelationsSettings" + _key);
+            var settings = _keyValueService.GetValue(Static.Constants.KeyValues.SettingsKey);
 
             if (!string.IsNullOrWhiteSpace(settings))
             {
@@ -30,9 +33,22 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
             return CreateSettings();
         }
 
-        public PermissionsViewModel SavePermissionViewModel(PermissionsViewModel permissionViewModel)
+        public Attempt<PermissionsViewModel> SavePermissionViewModel(PermissionsViewModel permissionViewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var serializedSettings = JsonConvert.SerializeObject(permissionViewModel);
+                _keyValueService.SetValue(Static.Constants.KeyValues.SettingsKey, serializedSettings);
+                
+                return Attempt<PermissionsViewModel>.Succeed(permissionViewModel);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, nameof(e));
+
+                return Attempt<PermissionsViewModel>.Fail(permissionViewModel);
+            }
+            
         }
 
         private static PermissionsViewModel CreateSettings()
