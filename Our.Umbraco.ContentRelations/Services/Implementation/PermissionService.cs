@@ -1,5 +1,6 @@
 ﻿using System;
-using J2N.Collections.Generic;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Our.Umbraco.ContentRelations.ViewModels;
@@ -12,7 +13,7 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
     {
         private readonly IKeyValueService _keyValueService;
         private readonly ILogger<PermissionService> _logger;
-        
+
         public PermissionService(
             IKeyValueService keyValueService,
             ILogger<PermissionService> logger)
@@ -23,11 +24,19 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
 
         public PermissionsViewModel GetPermissions()
         {
-            var settings = _keyValueService.GetValue(Static.Constants.KeyValues.SettingsKey);
+            var settingsString = _keyValueService.GetValue(Static.Constants.KeyValues.SettingsKey);
 
-            if (!string.IsNullOrWhiteSpace(settings))
+            if (!string.IsNullOrWhiteSpace(settingsString))
             {
-                return JsonConvert.DeserializeObject<PermissionsViewModel>(settings);
+                var settings = JsonConvert.DeserializeObject<PermissionsViewModel>(settingsString);
+
+                if (settings == null)
+                    return CreateSettings();
+
+                if (!settings.Delete.UserGroups.Contains(Constants.Security.AdminGroupAlias))
+                    settings.Delete.UserGroups.Add(Constants.Security.AdminGroupAlias);
+
+                return settings;
             }
 
             return CreateSettings();
@@ -37,9 +46,13 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
         {
             try
             {
+
+                permissionViewModel.Delete.UserGroups = permissionViewModel.Delete.UserGroups.Distinct().ToList();
+
                 var serializedSettings = JsonConvert.SerializeObject(permissionViewModel);
+
                 _keyValueService.SetValue(Static.Constants.KeyValues.SettingsKey, serializedSettings);
-                
+
                 return Attempt<PermissionsViewModel>.Succeed(permissionViewModel);
             }
             catch (Exception e)
@@ -48,7 +61,7 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
 
                 return Attempt<PermissionsViewModel>.Fail(permissionViewModel);
             }
-            
+
         }
 
         private static PermissionsViewModel CreateSettings()
@@ -58,7 +71,7 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
                 Delete = new PermissionViewModel("deletePermission")
                 {
                     Allowed = true,
-                    UseGroups = new List<string>
+                    UserGroups = new List<string>
                     {
                         Constants.Security.AdminGroupAlias
                     }

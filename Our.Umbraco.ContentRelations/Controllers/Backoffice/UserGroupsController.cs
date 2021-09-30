@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using Our.Umbraco.ContentRelations.Common;
 using Our.Umbraco.ContentRelations.Services;
 using Our.Umbraco.ContentRelations.ViewModels;
@@ -31,6 +32,7 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
             _permissionService = permissionService;
         }
 
+        [HttpGet]
         public ApiAttempt<IEnumerable<UserGroupViewModel>> GetUserGroups()
         {
             // Get al user groups except admin 
@@ -45,16 +47,20 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
             return ApiAttempt<IEnumerable<UserGroupViewModel>>.Success(userGroups);
         }
 
+        [HttpGet]
         public ApiAttempt<PermissionsViewModel> GetConfiguration()
         {
             return ApiAttempt<PermissionsViewModel>.Success(_permissionService.GetPermissions());
         }
 
+        [HttpPost]
         public ApiAttempt<PermissionsViewModel> SaveConfiguration(PermissionsViewModel permissions)
         {
             var saveAttempt = _permissionService.SavePermissionViewModel(permissions);
 
-            if(saveAttempt.Success)
+
+            //TODO Validate PermissionsViewModel
+            if (saveAttempt.Success)
                 return ApiAttempt<PermissionsViewModel>.Success(saveAttempt.Result);
 
             return ApiAttempt<PermissionsViewModel>.Failed("Configuration", "Cannot save configuration", EventMessageType.Error);

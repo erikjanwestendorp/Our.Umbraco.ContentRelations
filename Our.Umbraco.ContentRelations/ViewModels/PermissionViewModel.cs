@@ -1,5 +1,6 @@
-﻿using System.Runtime.Serialization;
-using J2N.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
+
 
 namespace Our.Umbraco.ContentRelations.ViewModels
 {
@@ -10,7 +11,7 @@ namespace Our.Umbraco.ContentRelations.ViewModels
         public bool Allowed { get; set; }
 
         [DataMember(Name = "userGroups")]
-        public List<string> UseGroups { get; set; }
+        public List<string> UserGroups { get; set; }
 
         [DataMember(Name = "key")]
         public string Key { get; set; }
@@ -18,7 +19,7 @@ namespace Our.Umbraco.ContentRelations.ViewModels
         public PermissionViewModel(string key)
         {
             Key = key;
-            UseGroups = new List<string>();
+            UserGroups = new List<string>();
         }
         
     }
