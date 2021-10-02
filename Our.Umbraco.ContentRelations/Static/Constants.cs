@@ -61,5 +61,10 @@ namespace Our.Umbraco.ContentRelations.Static
             public const string SettingsKey = "contentRelationsSettings{CFC88F56-CDAB-430B-8CB2-ED879C4ACA8C}";
         }
 
+        public static class AuthorizationPolicies
+        {
+            public const string CanDeleteContentRelationsPolicy = "canDeleteContentRelations";
+        }
+
     }
 }
