@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function contentRelationsController($scope, $routeParams, contentRelationsResource, userService, editorService, overlayService, localizationService, notificationsService) {
+    function contentRelationsController($scope, $routeParams, contentRelationsResource, userService, editorService, overlayService, localizationService, notificationsService, contentRelationsUserGroupsResource) {
 
         var vm = this;
 
@@ -10,8 +10,8 @@
         vm.addRelation = addRelation;
         vm.deleteRelation = deleteRelation;
 
+        vm.isAdmin = false;
         vm.isLoading = true;
-
         vm.permissions = {
             canBrowseSettingsSection: false,
             canAddRelations: false,
@@ -40,8 +40,9 @@
         }
 
         function setPermissions() {
-
+            
             userService.getCurrentUser().then(function (user) {
+                
                 if (user.allowedSections.includes("settings")) {
                     vm.permissions.canBrowseSettingsSection = true;
                 }
@@ -50,9 +51,20 @@
                     vm.permissions.canAddRelations = true;
                 }
 
-                if (user.userGroups.includes("admin")) {
-                    vm.permissions.canDeleteRelations = true;
-                }
+                contentRelationsUserGroupsResource.getConfiguration().then(function(config) {
+                    var currentUserGroups = user.userGroups;
+                    var configurationDeleteGroups = config.content.delete.userGroups;
+
+                    for (var i = 0; i < currentUserGroups.length; i++) {
+                        vm.permissions.canDeleteRelations = configurationDeleteGroups.includes(currentUserGroups[i]);
+
+                        if (vm.permissions.canDeleteRelations) {
+                            break;
+                        }
+                    }
+                });
+
+
             });
 
         }

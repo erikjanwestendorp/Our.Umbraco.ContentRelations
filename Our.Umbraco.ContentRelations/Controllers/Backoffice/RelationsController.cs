@@ -54,7 +54,7 @@ namespace Our.Umbraco.ContentRelations.Controllers.Backoffice
         }
 
         [HttpDelete]
-        [Authorize(Policy = AuthorizationPolicies.SectionAccessSettings)]
+        [Authorize(Policy = Constants.AuthorizationPolicies.CanDeleteContentRelationsPolicy)]
         public bool DeleteRelation(int id)
         {
             return _relationService.Delete(id);
