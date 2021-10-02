@@ -44,12 +44,15 @@ namespace Our.Umbraco.ContentRelations.Authorization
             var userUserGroups = user.Groups.Select(x => x.Alias).ToList();
             var permissionUserGroups = permissions.Delete.UserGroups;
 
-            var inter = userUserGroups.Intersect(permissionUserGroups);
+            
             if (userUserGroups.Intersect(permissionUserGroups).Any())
             {
                 context.Succeed(requirement);
+                return Task.CompletedTask;
             }
 
+
+            context.Fail();
             return Task.CompletedTask;
         }
     }
