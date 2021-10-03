@@ -2,7 +2,7 @@
   "javascript": [
 
     // interceptor
-    "~/App_Plugins/ContentRelations/interceptor.js",
+    //"~/App_Plugins/ContentRelations/interceptor.js",
 
     // controllers
     "~/App_Plugins/ContentRelations/content.relations.controller.js",
