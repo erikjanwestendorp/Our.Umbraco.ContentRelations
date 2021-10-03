@@ -86,11 +86,11 @@
                 submit: function (model) {
                     
                     if (model && !model.succeeded) {
-                        notificationsService.error(model.message.category, model.message.message);
+                        notificationsService.error(model.message.Category, model.message.Message);
                     }
 
                     if (model && model.succeeded) {
-                        notificationsService.success(model.message.category, model.message.message);
+                        notificationsService.success(model.message.Category, model.message.Message);
                         vm.relations.push(model.content);
                     }
                     
