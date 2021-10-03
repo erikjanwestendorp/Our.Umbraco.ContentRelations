@@ -53,8 +53,9 @@
 
                 contentRelationsUserGroupsResource.getConfiguration().then(function(config) {
                     var currentUserGroups = user.userGroups;
+                    
                     var configurationDeleteGroups = config.content.delete.userGroups;
-
+                    
                     for (var i = 0; i < currentUserGroups.length; i++) {
                         vm.permissions.canDeleteRelations = configurationDeleteGroups.includes(currentUserGroups[i]);
 

@@ -1,11 +1,13 @@
-﻿using Umbraco.Cms.Core.Events;
+﻿using System.Runtime.Serialization;
+using Umbraco.Cms.Core.Events;
 
 namespace Our.Umbraco.ContentRelations.Common
 {
-
+    [DataContract(Name = "apiAttempt", Namespace = "")]
     public class ApiAttempt<T> : ApiAttempt
         where T : class
     {
+        [DataMember(Name = "content")]
         public T Content { get; set; }
 
         public new static ApiAttempt Success(string category, string message)
@@ -62,9 +64,13 @@ namespace Our.Umbraco.ContentRelations.Common
 
     }
 
+    [DataContract(Name = "apiAttempt", Namespace = "")]
     public class ApiAttempt
     {
+        [DataMember(Name = "succeeded")]
         public bool Succeeded { get; set; }
+
+        [DataMember(Name = "message")]
         public EventMessage Message { get; set; }
 
         public static ApiAttempt Success(string category, string message)

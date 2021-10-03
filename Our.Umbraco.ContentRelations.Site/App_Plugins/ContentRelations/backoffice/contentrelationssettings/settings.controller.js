@@ -35,7 +35,6 @@
                     vm.deleteGroups = data.content;
 
                     contentRelationsUserGroupsResource.getConfiguration().then(function (data) {
-                        
                         vm.settings.delete = data.content.delete;
 
                         applySelection(vm.settings.delete.userGroups, vm.deleteGroups);

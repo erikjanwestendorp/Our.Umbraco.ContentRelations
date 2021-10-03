@@ -53,8 +53,8 @@
                         {{item.createDateUtc | date: "dd/MM/yyyy 'at' h:mma"}}
                     </div>
                     <div class="umb-table-cell">
-                        <span ng-if="vm.permissions.canBrowseSettingsSection"><a class="btn-link -underline" ng-click="vm.navigateToRelationType(relation.relationTypeId)">{{relation.relationType.name}}</a></span>
-                        <span ng-if="!vm.permissions.canBrowseSettingsSection">{{relation.relationType.name}}</span>
+                        <span ng-if="vm.permissions.canBrowseSettingsSection"><a class="btn-link -underline" ng-click="vm.navigateToRelationType(relation.relationTypeId)">{{relation.relationType.Name}}</a></span>
+                        <span ng-if="!vm.permissions.canBrowseSettingsSection">{{relation.relationType.Name}}</span>
                     </div>
                     <div class="umb-table-cell">
                         <umb-button ng-if="vm.permissions.canDeleteRelations"
