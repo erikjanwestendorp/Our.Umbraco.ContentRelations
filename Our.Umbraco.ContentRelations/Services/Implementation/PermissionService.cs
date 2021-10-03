@@ -68,7 +68,7 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
         {
             return new PermissionsViewModel
             {
-                Delete = new PermissionViewModel("deletePermission")
+                Delete = new PermissionViewModel(Static.Constants.Permissions.DeletePermission)
                 {
                     Allowed = true,
                     UserGroups = new List<string>

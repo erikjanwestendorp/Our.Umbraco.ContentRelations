@@ -66,5 +66,11 @@ namespace Our.Umbraco.ContentRelations.Static
             public const string CanDeleteContentRelationsPolicy = "canDeleteContentRelations";
         }
 
+        public static class Permissions
+        {
+            public const string DeletePermission = "deletePermission";
+
+        }
+
     }
 }
