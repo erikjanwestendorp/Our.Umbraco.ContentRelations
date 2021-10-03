@@ -86,9 +86,10 @@ namespace Our.Umbraco.ContentRelations.Services.Implementation
 
         public bool Exists(RelationViewModel relation)
         {
-            var allRelations = _relationService.GetAllRelationsByRelationType(RelationType());
+            var allRelations = _relationService.GetAllRelationsByRelationType(RelationType()).ToList();
 
-            if (allRelations.Any(x => x.ChildId == relation.ChildId && x.ParentId == relation.ParentId))
+            if (allRelations.Any(x => x.ChildId == relation.ChildId && x.ParentId == relation.ParentId) 
+                || allRelations.Any(x => x.ChildId == relation.ParentId && x.ParentId == relation.ChildId))
                 return true;
 
             return false;
