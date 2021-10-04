@@ -11,7 +11,7 @@
         
         <Copyright>Copyright 2021</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Description>...</Description>
+        <Description>Umbraco ContentRelations offers the possibility to relate different content items to each other. As long as there is an active relation between content items, both items cannot be deleted.</Description>
         <Product>...</Product>
 
 		<PackageVersion>1.0.1-beta02</PackageVersion>
