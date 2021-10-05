@@ -6,15 +6,15 @@
         <Product>Our.Umbraco.ContentRelations</Product>
         <PackageId>Our.Umbraco.ContentRelations</PackageId>
         <Title>Our.Umbraco.ContentRelations</Title>
-
-        <Authors>Erik-Jan Westendorp</Authors>
+	    <PackageReadmeFile>readme.md</PackageReadmeFile>
+	    <Authors>Erik-Jan Westendorp</Authors>
+	    
         
         <Copyright>Copyright 2021</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Description>Umbraco ContentRelations offers the possibility to relate different content items to each other. As long as there is an active relation between content items, both items cannot be deleted.</Description>
-        <Product>...</Product>
-
-		<PackageVersion>1.0.1-beta02</PackageVersion>
+        
+		<PackageVersion>1.0.1-beta03</PackageVersion>
 		<Version>$(PackageVersion)</Version>
 
 	    <PackageProjectUrl>https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations</PackageProjectUrl>
@@ -42,7 +42,6 @@
       <None Remove="App_Plugins\ContentRelations\backoffice\contentrelationssettings\settings.controller.js" />
       <None Remove="App_Plugins\ContentRelations\backoffice\settings.dashboard.html" />
     </ItemGroup>
-
     <!--<ItemGroup>
       <None Remove="App_Plugins\ContentRelations\content.relations.controller.js" />
       <None Remove="App_Plugins\ContentRelations\info.html" />
