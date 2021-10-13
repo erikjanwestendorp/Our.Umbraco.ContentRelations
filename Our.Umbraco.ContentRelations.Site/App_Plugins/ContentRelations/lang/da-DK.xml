@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="da" intName="Danish" localName="Dansk" lcid="" culture="da-DK">
+	<creator>
+		<name>Erik-Jan Westendorp</name>
+		<link>https://www.erikjanwestendorp.nl</link>
+	</creator>
+	<area alias="treeHeaders">
+		<key alias="thirdParty">Tredjepart</key>
+	</area>
+	<area alias="default">
+		<key alias="node">Node</key>
+		<key alias="comment">Kommentar</key>
+		<key alias="relationType">Relationstype</key>
+		<key alias="deleteAllowed">Slet tilladt</key>
+		<key alias="delete">Slet</key>
+		<key alias="noRelations">Ingen relationer fundet for denne side</key>
+		<key alias="createDate">Oprettelsedato</key>
+		<key alias="relationDeleteWarning">Dette vil fjerne relationen med </key>
+	</area>
+	<area alias="contentRelationsPermissions">
+		<key alias="headerText">Tilladelser</key>
+		<key alias="deletePermission">Slet tilladelser</key>
+	</area>
+	<area alias="contentRelationsMessages">
+		<key alias="deleteNotAllowedCategory">Ikke tilladt</key>
+		<key alias="deleteNotAllowedMessage">Indhold kan ikke slettes, da det er forbundet med andet indhold</key>
+	</area>
+</language>
