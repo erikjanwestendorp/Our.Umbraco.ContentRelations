@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en_us" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+	<creator>
+		<name>Erik-Jan Westendorp</name>
+		<link>https://www.erikjanwestendorp.nl</link>
+	</creator>
+	<area alias="treeHeaders">
+		<key alias="thirdParty">Third party</key>
+	</area>
+	<area alias="default">
+		<key alias="node">Node</key>
+		<key alias="comment">Opmerking</key>
+		<key alias="relationType">Relation Type</key>
+		<key alias="deleteAllowed">Verwijderen toegestaan</key>
+		<key alias="delete">Verwijderen</key>
+		<key alias="noRelations">Geen relaties gevonden voor deze pagina</key>
+		<key alias="createDate">Aanmaak datum</key>
+		<key alias="relationDeleteWarning">Hiermee wordt de relatie verwijderd met </key>
+	</area>
+	<area alias="contentRelationsPermissions">
+		<key alias="headerText">Rechten</key>
+		<key alias="deletePermission">Verwijder machtiging</key>
+	</area>
+	<area alias="contentRelationsMessages">
+		<key alias="deleteNotAllowedCategory">Niet toegestaan</key>
+		<key alias="deleteNotAllowedMessage">Content kan niet worden verwijderd omdat deze gerelateerd is aan een ander item</key>
+	</area>
+</language>
