@@ -47,7 +47,7 @@
                     vm.permissions.canBrowseSettingsSection = true;
                 }
 
-                if (user.allowedSections.includes("content")) {
+                if (user.allowedSections.includes("settings")) {
                     vm.permissions.canAddRelations = true;
                 }
 
