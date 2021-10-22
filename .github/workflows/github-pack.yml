@@ -1,4 +1,16 @@
 name: GITHUB Package
-
-dotnet nuget add source --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/erikjanwestendorp/index.json"
-
+on: 
+  workflow_dispatch
+      
+jobs:
+  publish:
+    name: build, pack & publish
+    runs-on: windows-latest
+    steps: 
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet nuget add source --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/erikjanwestendorp/index.json"
+    
