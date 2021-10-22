@@ -2,6 +2,7 @@
 
 ## Status
 [![v9-build](https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations/actions/workflows/build.yml/badge.svg)](https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations/actions/workflows/build.yml)
+[![publish to nuget](https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations/actions/workflows/publish.yml/badge.svg)](https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations/actions/workflows/publish.yml)
 
 ## Demo site Umbraco Backoffice Login Details
 
