@@ -1,5 +1,8 @@
 # Our.Umbraco.ContentRelations
 
+## Status
+[![v9-build](https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations/actions/workflows/build.yml/badge.svg)](https://github.com/erikjanwestendorp/Our.Umbraco.ContentRelations/actions/workflows/build.yml)
+
 ## Demo site Umbraco Backoffice Login Details
 
 ### Admin
