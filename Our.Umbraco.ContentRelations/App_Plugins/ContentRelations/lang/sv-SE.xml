@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="sv" intName="Swedish" localName="Svenska" lcid="" culture="sv-SE">
+	<creator>
+		<name>Erik-Jan Westendorp</name>
+		<link>https://www.erikjanwestendorp.nl</link>
+	</creator>
+	<area alias="treeHeaders">
+		<key alias="thirdParty">Tredjepart</key>
+	</area>
+	<area alias="default">
+		<key alias="node">Nod</key>
+		<key alias="comment">Kommentar</key>
+		<key alias="relationType">Relationstyp</key>
+		<key alias="deleteAllowed">Radering tillåten</key>
+		<key alias="delete">Radera</key>
+		<key alias="noRelations">Inga relationer kunde hittas för denna sida</key>
+		<key alias="createDate">Skapades</key>
+		<key alias="relationDeleteWarning">Detta kommer radera relationen med </key>
+	</area>
+	<area alias="contentRelationsPermissions">
+		<key alias="headerText">Behörighet</key>
+		<key alias="deletePermission">Behörighet att radera</key>
+	</area>
+	<area alias="contentRelationsMessages">
+		<key alias="deleteNotAllowedCategory">Ej tillåtet</key>
+		<key alias="deleteNotAllowedMessage">Innehållet kunde inte raderas eftersom relation finns till annat innehåll</key>
+	</area>
+</language>
