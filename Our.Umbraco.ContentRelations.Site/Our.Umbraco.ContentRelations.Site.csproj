@@ -9,6 +9,8 @@
         <PackageReference Include="Umbraco.SqlServerCE" Version="4.0.0.1" />
     </ItemGroup>
 
+	<Import Project="..\Our.Umbraco.ContentRelations\build\Our.Umbraco.ContentRelations.targets" />
+
 
     <ItemGroup>
         <Compile Remove="umbraco\Data\**" />
