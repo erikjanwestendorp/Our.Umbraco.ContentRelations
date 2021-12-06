@@ -13,6 +13,7 @@
 		<key alias="relationType">Relation Type</key>
 		<key alias="deleteAllowed">Verwijderen toegestaan</key>
 		<key alias="delete">Verwijderen</key>
+		<key alias="addRelation">Voeg relatie toe</key>
 		<key alias="noRelations">Geen relaties gevonden voor deze pagina</key>
 		<key alias="createDate">Aanmaak datum</key>
 		<key alias="relationDeleteWarning">Hiermee wordt de relatie verwijderd met </key>
