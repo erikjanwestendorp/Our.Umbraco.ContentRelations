@@ -4,6 +4,8 @@
     function createRelationController($scope, $routeParams, contentRelationsResource) {
 
         var vm = this;
+        vm.labels = $scope.model.labels;
+
         vm.save = save;
         vm.close = close;
 
@@ -12,6 +14,7 @@
 
         vm.dialogTreeApi = {};
 
+       
         vm.onTreeInit = function () {
             vm.dialogTreeApi.callbacks.treeNodeSelect(nodeSelectHandler);
         };

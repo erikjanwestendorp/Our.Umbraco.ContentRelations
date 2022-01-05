@@ -6,7 +6,7 @@
      </style>
     <umb-editor-view>
 
-        <umb-editor-header name="'Add Relation'"
+        <umb-editor-header name="vm.labels.title"
                            name-locked="true"
                            hide-alias="true"
                            hide-icon="true"
@@ -16,9 +16,7 @@
         <umb-editor-container>
             <umb-box>
                 <umb-box-content>
-
-
-                    <umb-control-group label="Node">
+                    <umb-control-group label="{{vm.labels.node}}">
                         <umb-tree section="content"
                                   hideheader="true"
                                   hideoptions="true"
@@ -30,10 +28,10 @@
                         </umb-tree>
                     </umb-control-group>
 
-                    <umb-control-group label="Comment">
+                    <umb-control-group label="{{vm.labels.comment}}">
                         <input type="text"
                                class="umb-property-editor umb-textstring"
-                               ng-model="vm.comment" />
+                               ng-model="vm.comment"/>
                     </umb-control-group>
 
                 </umb-box-content>

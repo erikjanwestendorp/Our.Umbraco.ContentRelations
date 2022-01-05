@@ -101,8 +101,17 @@
                 }
             };
 
-            editorService.open(dialog);
+            localizationService.localizeMany(["default_addRelation","default_node", "default_comment"]).then(function (data) {
+                const [title, node, comment] = data;
+                const labels = {
+                    title,
+                    node,
+                    comment
+                };
+                dialog.labels = labels;
+                editorService.open(dialog);
 
+            });
         }
 
         function deleteRelation(relation, event) {
