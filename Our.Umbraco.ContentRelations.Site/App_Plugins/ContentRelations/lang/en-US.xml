@@ -21,6 +21,8 @@
 	<area alias="contentRelationsPermissions">
 		<key alias="headerText">Permissions</key>
 		<key alias="deletePermission">Delete permissions</key>
+		<key alias="generalText">Content relations content app permissions can be set here.</key>
+		<key alias="deleteText">Delete permissions can be set here.</key>
 	</area>
 	<area alias="contentRelationsMessages">
 		<key alias="deleteNotAllowedCategory">Not allowed</key>

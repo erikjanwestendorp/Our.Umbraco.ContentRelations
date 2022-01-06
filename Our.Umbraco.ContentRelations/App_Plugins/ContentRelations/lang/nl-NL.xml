@@ -21,6 +21,8 @@
 	<area alias="contentRelationsPermissions">
 		<key alias="headerText">Rechten</key>
 		<key alias="deletePermission">Verwijder machtiging</key>
+		<key alias="generalText">Hier kunnen de rechten voor de contentrelaties content app worgen ingesteld.</key>
+		<key alias="deleteText">Verwijder rechten kunnen hier worden ingesteld.</key>
 	</area>
 	<area alias="contentRelationsMessages">
 		<key alias="deleteNotAllowedCategory">Niet toegestaan</key>
